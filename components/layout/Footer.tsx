@@ -42,6 +42,8 @@ const footerLinks = {
 };
 
 export default function Footer() {
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
   return (
     <footer
       style={{
@@ -63,7 +65,7 @@ export default function Footer() {
           {/* Brand Column */}
           <div>
             <img
-              src="/logo-bstore.svg"
+              src={`${basePath}/logo-bstore.svg`}
               alt="B'Store Ventures"
               style={{ height: "44px", width: "auto", marginBottom: "16px" }}
             />

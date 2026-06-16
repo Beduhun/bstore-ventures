@@ -16,6 +16,7 @@ const navLinks = [
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -48,7 +49,7 @@ export default function Navbar() {
       {/* Logo */}
       <Link href="/" style={{ display: "flex", alignItems: "center", gap: "10px", textDecoration: "none" }}>
         <img
-          src="/logo-bstore.svg"
+          src={`${basePath}/logo-bstore.svg`}
           alt="B'Store Ventures"
           style={{ height: "40px", width: "auto" }}
         />
