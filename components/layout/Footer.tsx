@@ -172,7 +172,7 @@ export default function Footer() {
             </p>
           </div>
           <a
-            href="/#cursos"
+            href={`${basePath}/#cursos`}
             id="footer-cta-cursos"
             className="btn-cyan"
             style={{

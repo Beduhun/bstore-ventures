@@ -81,6 +81,7 @@ const CustomTooltip = ({ active, payload, label }: any) => {
 };
 
 export default function PainSection() {
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
   const sectionRef = useRef(null);
   const inView = useInView(sectionRef, { once: true, margin: "-100px" });
 
@@ -219,7 +220,7 @@ export default function PainSection() {
             Você ainda quer ficar fora dessa onda? 🌊
           </p>
           <motion.a
-            href="/#quiz"
+            href={`${basePath}/#quiz`}
             id="pain-cta"
             className="btn-ghost"
             whileHover={{ scale: 1.03, y: -2 }}

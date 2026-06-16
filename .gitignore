@@ -24,3 +24,6 @@ Thumbs.db
 
 # Backup API (not used in static export)
 app/_api_backup/
+
+# Documentos internos de estrategia (nao publicar)
+docs/

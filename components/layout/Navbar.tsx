@@ -75,7 +75,7 @@ export default function Navbar() {
           </Link>
         ))}
         <a
-          href="/#quiz"
+          href={`${basePath}/#quiz`}
           id="navbar-cta"
           className="btn-cyan pulse-glow"
           style={{
@@ -148,7 +148,7 @@ export default function Navbar() {
               </Link>
             ))}
             <a
-              href="/#quiz"
+              href={`${basePath}/#quiz`}
               onClick={() => setMenuOpen(false)}
               className="btn-cyan"
               style={{

@@ -49,6 +49,7 @@ function FloatingParticles() {
 }
 
 export default function HeroSection() {
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
   const ref = useRef<HTMLElement>(null);
   const inView = useInView(ref, { once: true });
   const [mouseInHero, setMouseInHero] = useState(false);
@@ -283,7 +284,7 @@ export default function HeroSection() {
           style={{ display: "flex", gap: "16px", justifyContent: "center", flexWrap: "wrap" }}
         >
           <motion.a
-            href="/#quiz"
+            href={`${basePath}/#quiz`}
             id="hero-cta-primary"
             className="btn-cyan"
             whileHover={{ scale: 1.04, y: -2 }}
@@ -302,7 +303,7 @@ export default function HeroSection() {
             Descobrir Meu Plano Ideal →
           </motion.a>
           <motion.a
-            href="/#cursos"
+            href={`${basePath}/#cursos`}
             id="hero-cta-secondary"
             className="btn-ghost"
             whileHover={{ scale: 1.03, y: -2 }}
