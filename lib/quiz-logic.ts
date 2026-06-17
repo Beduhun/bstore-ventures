@@ -184,7 +184,7 @@ export const RESULT_MAP: Record<ResultProfile, QuizResult> = {
     headline: "🔬 Seu Plano: Você Investe, Mas Não Converte — Isso Tem Solução",
     diagnosis: "O problema raramente é o produto ou o orçamento de mídia. É a ausência de uma estrutura otimizada para conversão. Uma plataforma certa + funil bem configurado pode multiplicar seus resultados sem aumentar o investimento.",
     recommendations: [
-      { label: "Otimização de Conversão para E-commerce", href: "#LINK_AFILIADO_CRO", icon: "📊", badge: "Aumento Médio 34%" },
+      { label: "Otimização de Conversão para E-commerce", href: "#LINK_AFILIADO_CRO", icon: "📊", badge: "Alta Conversão" },
       { label: "Google Ads para E-commerce — ROI Real", href: "#LINK_AFILIADO_GADS", icon: "🎯" },
       { label: "Plataforma de E-commerce de Alta Conversão", href: "#LINK_AFILIADO_PLATAFORMA", icon: "🌐" },
     ],

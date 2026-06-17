@@ -102,8 +102,8 @@ export default function FeaturedCourses() {
             Escolhidos pelos nossos{" "}
             <span className="gradient-text">especialistas</span>
           </h2>
-          <p style={{ color: "#1E3A5F", fontSize: "1rem", marginTop: "12px", maxWidth: "480px", margin: "12px auto 0" }}>
-            Cursos validados com resultados reais de alunos que venderam nos primeiros 30 dias.
+          <p style={{ color: "#1E3A5F", fontSize: "1rem", marginTop: "12px", maxWidth: "540px", margin: "12px auto 0", lineHeight: 1.6 }}>
+            Indicações estruturadas para ajudar você a dar o próximo passo de forma segura, do básico às vendas.
           </p>
         </motion.div>
 

@@ -72,11 +72,11 @@ export default function QuizSection() {
               marginBottom: "14px",
             }}
           >
-            Qual é o seu{" "}
-            <span className="gradient-text">perfil empreendedor?</span>
+            Descubra por que você ainda não está{" "}
+            <span className="gradient-text">vendendo online</span>
           </h2>
-          <p style={{ color: "#1E3A5F", fontSize: "1rem", maxWidth: "520px", margin: "0 auto" }}>
-            Responda 7 perguntas rápidas e descubra qual estratégia e quais cursos são ideais para o seu momento.
+          <p style={{ color: "#1E3A5F", fontSize: "1rem", maxWidth: "580px", margin: "0 auto", lineHeight: 1.6 }}>
+            Responda 7 perguntas rápidas e receba um diagnóstico detalhado com o plano de ação ideal para o seu perfil e bolso, sem enrolação.
           </p>
         </motion.div>
 

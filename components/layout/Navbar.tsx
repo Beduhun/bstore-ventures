@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Image from "next/image";
+import Logo from "@/components/ui/Logo";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
@@ -47,20 +47,13 @@ export default function Navbar() {
       }}
     >
       {/* Logo */}
-      <Link href="/" style={{ display: "flex", alignItems: "center", gap: "10px", textDecoration: "none" }}>
+      <Link href="/" style={{ display: "flex", alignItems: "center", textDecoration: "none" }}>
         <div style={{
-          background: scrolled ? "transparent" : "#FFFFFF",
-          padding: scrolled ? "0" : "4px 10px",
-          borderRadius: scrolled ? "0" : "6px",
           display: "flex",
           alignItems: "center",
           transition: "all 0.3s ease"
         }}>
-          <img
-            src={`${basePath}/logo-bstore.jpg`}
-            alt="B'Store Ventures"
-            style={{ height: scrolled ? "40px" : "32px", width: "auto" }}
-          />
+          <Logo light={!scrolled} height={scrolled ? 34 : 40} />
         </div>
       </Link>
 

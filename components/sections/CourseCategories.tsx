@@ -82,7 +82,7 @@ export default function CourseCategories() {
             textTransform: "uppercase",
             marginBottom: "12px",
           }}>
-            Escolha seu caminho
+            Direcionamento Focado
           </span>
           <h2 style={{
             fontSize: "clamp(1.8rem, 4vw, 2.8rem)",
@@ -90,8 +90,8 @@ export default function CourseCategories() {
             color: "#0B2545",
             letterSpacing: "-0.02em",
           }}>
-            Qual é o seu perfil de{" "}
-            <span className="gradient-text">empreendedor?</span>
+            Explore as áreas do{" "}
+            <span className="gradient-text">e-commerce</span>
           </h2>
         </motion.div>
 

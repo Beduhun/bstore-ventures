@@ -2,6 +2,7 @@
 
 import { useRef, useState, useEffect, useCallback } from "react";
 import { motion, useInView, useMotionValue, useSpring } from "framer-motion";
+import { MARKET_STATS } from "@/lib/stats";
 
 const circuitPaths = [
   "M 0 200 L 100 200 L 100 100 L 200 100",
@@ -236,7 +237,7 @@ export default function HeroSection() {
               cursor: "default",
             }}
           >
-            ✦ Hub de Afiliados para Empreendedores Digitais
+            ✦ Do Balcão ao Digital — Caminho Seguro, Sem Promessas
           </motion.span>
         </motion.div>
 
@@ -330,29 +331,28 @@ export default function HeroSection() {
             flexWrap: "wrap",
           }}
         >
-          {[
-            { value: "87%", label: "Crescimento e-commerce BR" },
-            { value: "4.2M", label: "Lojas sem presença digital" },
-            { value: "R$204B", label: "Mercado em 2024" },
-          ].map((stat, i) => (
-            <motion.div
-              key={stat.label}
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={inView ? { opacity: 1, scale: 1 } : {}}
-              transition={{ duration: 0.5, delay: 1.2 + i * 0.15 }}
-              style={{ textAlign: "center" }}
-            >
-              <div
-                className="gradient-text"
-                style={{ fontSize: "1.5rem", fontWeight: 800 }}
+          {MARKET_STATS.slice(0, 3).map((stat, i) => {
+            const displayValue = `${stat.prefix ?? ""}${stat.value}${stat.suffix ?? ""}`;
+            return (
+              <motion.div
+                key={stat.label}
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={inView ? { opacity: 1, scale: 1 } : {}}
+                transition={{ duration: 0.5, delay: 1.2 + i * 0.15 }}
+                style={{ textAlign: "center" }}
               >
-                {stat.value}
-              </div>
-              <div style={{ fontSize: "12px", color: "#7A9CC2", marginTop: "4px" }}>
-                {stat.label}
-              </div>
-            </motion.div>
-          ))}
+                <div
+                  className="gradient-text"
+                  style={{ fontSize: "1.5rem", fontWeight: 800 }}
+                >
+                  {displayValue}
+                </div>
+                <div style={{ fontSize: "12px", color: "#7A9CC2", marginTop: "4px" }}>
+                  {stat.label}
+                </div>
+              </motion.div>
+            );
+          })}
         </motion.div>
       </motion.div>
     </section>

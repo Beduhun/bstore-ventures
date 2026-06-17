@@ -12,12 +12,7 @@ import {
   ResponsiveContainer,
 } from "recharts";
 
-const stats = [
-  { value: 87, suffix: "%", label: "E-commerce BR cresceu em 3 anos", source: "ABCOMM" },
-  { value: 4.2, suffix: "M", label: "Lojas físicas sem presença digital", source: "SEBRAE" },
-  { value: 204, prefix: "R$", suffix: "bi", label: "Movimentado no e-commerce BR", source: "2024" },
-  { value: 93, prefix: "US$", suffix: "bi", label: "Mercado global de afiliados até 2033", source: "Global Growth Insights" },
-];
+import { MARKET_STATS as stats } from "@/lib/stats";
 
 const chartData = [
   { ano: "2019", valor: 61 },
@@ -131,8 +126,8 @@ export default function PainSection() {
             O mercado não vai te{" "}
             <span className="gradient-text">esperar.</span>
           </h2>
-          <p style={{ color: "#1E3A5F", fontSize: "1.1rem", maxWidth: "520px", margin: "0 auto" }}>
-            O aluguel não espera o fim do mês e o movimento de rua cai a cada ano, enquanto o digital cresce. Os números abaixo mostram o tamanho da oportunidade e o custo de ficar parado.
+          <p style={{ color: "#1E3A5F", fontSize: "1.1rem", maxWidth: "600px", margin: "0 auto", lineHeight: 1.6 }}>
+            O aluguel não espera o fim do mês e o movimento de rua não é mais o mesmo. Cada dia de porta aberta custa caro, e ficar de braços cruzados esperando a rua encher não é mais uma opção.
           </p>
         </motion.div>
 

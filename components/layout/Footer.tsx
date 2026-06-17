@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Logo from "@/components/ui/Logo";
 // Inline social icons (lucide-react v1 compatible)
 const InstagramIcon = () => (
   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -36,7 +37,7 @@ const footerLinks = {
     { href: "/blog/vender-mercado-livre-iniciante", label: "Mercado Livre" },
   ],
   Contato: [
-    { href: "mailto:contato@bstoreventures.com.br", label: "contato@bstoreventures.com.br" },
+    { href: "mailto:bstore.ventures@gmail.com", label: "bstore.ventures@gmail.com" },
     { href: "/#quiz", label: "Suporte" },
   ],
 };
@@ -65,17 +66,10 @@ export default function Footer() {
           {/* Brand Column */}
           <div>
             <div style={{
-              background: "#FFFFFF",
-              padding: "6px 12px",
-              borderRadius: "8px",
-              display: "inline-block",
-              marginBottom: "16px"
+              marginBottom: "16px",
+              display: "block"
             }}>
-              <img
-                src={`${basePath}/logo-bstore.jpg`}
-                alt="B'Store Ventures"
-                style={{ height: "36px", width: "auto", display: "block" }}
-              />
+              <Logo light={true} height={36} />
             </div>
             <p style={{ color: "#7A9CC2", fontSize: "14px", lineHeight: 1.7, maxWidth: "240px" }}>
               Acelerando a transição do comércio físico para o ecossistema digital.
