@@ -13,11 +13,8 @@ const BLogoIcon = ({ fill, stroke }: { fill: string; stroke: string }) => {
   
   // Right Loops of the B (slanted, with sharp top-left and bottom-left tips pointing outward, parallel to left bar)
   const logoPathRight = `
-    M 85 20 L 86 20 Q 106 20 102 45 Q 98 70 82 70 
-    L 42 70 L 92 70 Q 112 70 107 95 Q 102 120 74 120 
-    L 41 112 L 55 28 Z
-    M58 32 L74 32 Q86 32 84 45 Q82 58 68 58 L52 58 Q54 45 58 32 Z
-    M50 82 L76 82 Q88 82 86 95 Q84 108 68 108 L44 108 Q46 95 50 82 Z
+    M 55 28 L 85 20 L 86 20 Q 106 20 102 45 Q 98 70 82 70 L 42 70 L 68 58 Q 82 58 84 45 Q 86 32 74 32 L 58 32 L 50 31 Z
+    M 42 70 L 92 70 Q 112 70 107 95 Q 102 120 74 120 L 41 112 L 44 108 L 68 108 Q 84 108 86 95 Q 88 82 76 82 L 50 82 Z
   `;
 
   // Integrated circuit lines coming off the bottom loop (overlapping the B)
