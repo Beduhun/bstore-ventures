@@ -3,8 +3,8 @@
 import { useRef, useState, useEffect } from "react";
 import { motion, useInView } from "framer-motion";
 import {
-  LineChart,
-  Line,
+  AreaChart,
+  Area,
   XAxis,
   YAxis,
   CartesianGrid,
@@ -56,20 +56,25 @@ function AnimatedCounter({ target, suffix, prefix }: { target: number; suffix?: 
 const CustomTooltip = ({ active, payload, label }: any) => {
   if (active && payload && payload.length) {
     return (
-      <div style={{
-        background: "rgba(18,45,91,0.95)",
-        backdropFilter: "blur(12px)",
-        border: "1px solid rgba(0,196,255,0.3)",
-        borderRadius: "12px",
-        padding: "14px 18px",
-        color: "#F0F6FF",
-        boxShadow: "0 8px 32px rgba(0,0,0,0.3)",
-      }}>
+      <motion.div
+        initial={{ opacity: 0, scale: 0.95, y: 8 }}
+        animate={{ opacity: 1, scale: 1, y: 0 }}
+        transition={{ duration: 0.2, ease: "easeOut" }}
+        style={{
+          background: "rgba(11, 37, 69, 0.95)",
+          backdropFilter: "blur(12px)",
+          border: "1px solid rgba(0, 196, 255, 0.3)",
+          borderRadius: "12px",
+          padding: "14px 18px",
+          color: "#F0F6FF",
+          boxShadow: "0 10px 30px rgba(0, 196, 255, 0.15)",
+        }}
+      >
         <p style={{ color: "#7A9CC2", fontSize: "13px", marginBottom: "4px" }}>{label}</p>
         <p style={{ color: "#00C4FF", fontWeight: 700, fontSize: "18px" }}>
           R$ {payload[0].value} bilhões
         </p>
-      </div>
+      </motion.div>
     );
   }
   return null;
@@ -79,6 +84,9 @@ export default function PainSection() {
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
   const sectionRef = useRef(null);
   const inView = useInView(sectionRef, { once: true, margin: "-100px" });
+
+  const chartRef = useRef(null);
+  const chartInView = useInView(chartRef, { once: true, margin: "-100px" });
 
   return (
     <section
@@ -174,9 +182,10 @@ export default function PainSection() {
 
         {/* Chart */}
         <motion.div
+          ref={chartRef}
           initial={{ opacity: 0, y: 40, filter: "blur(6px)" }}
-          animate={inView ? { opacity: 1, y: 0, filter: "blur(0px)" } : {}}
-          transition={{ duration: 0.8, delay: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
+          animate={chartInView ? { opacity: 1, y: 0, filter: "blur(0px)" } : {}}
+          transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
           className="glow-card"
           style={{ borderRadius: "20px", padding: "36px 24px 24px" }}
         >
@@ -186,25 +195,33 @@ export default function PainSection() {
           <p style={{ color: "#4A6B82", fontSize: "13px", marginBottom: "28px" }}>
             Volume em R$ bilhões — Fonte: ABComm / Neotrust
           </p>
-          {inView && (
+          {chartInView && (
             <ResponsiveContainer width="100%" height={280}>
-              <LineChart data={chartData}>
+              <AreaChart data={chartData}>
+                <defs>
+                  <linearGradient id="chartGrad" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="5%" stopColor="#00C4FF" stopOpacity={0.25} />
+                    <stop offset="95%" stopColor="#00C4FF" stopOpacity={0.0} />
+                  </linearGradient>
+                </defs>
                 <CartesianGrid strokeDasharray="3 3" stroke="rgba(11,37,69,0.08)" />
                 <XAxis dataKey="ano" stroke="#4A6B82" tick={{ fill: "#4A6B82", fontSize: 13 }} />
                 <YAxis stroke="#4A6B82" tick={{ fill: "#4A6B82", fontSize: 13 }} unit="bi" />
-                <Tooltip content={<CustomTooltip />} />
-                <Line
+                <Tooltip content={<CustomTooltip />} cursor={{ stroke: "rgba(0,196,255,0.2)", strokeWidth: 1.5 }} />
+                <Area
                   type="monotone"
                   dataKey="valor"
                   stroke="#00C4FF"
-                  strokeWidth={3}
+                  strokeWidth={3.5}
+                  fillOpacity={1}
+                  fill="url(#chartGrad)"
                   dot={{ r: 5, fill: "#00C4FF", strokeWidth: 0 }}
-                  activeDot={{ r: 8, fill: "#00C4FF" }}
+                  activeDot={{ r: 8, fill: "#00C4FF", stroke: "#FFFFFF", strokeWidth: 2 }}
                   isAnimationActive={true}
-                  animationDuration={2200}
+                  animationDuration={2000}
                   animationEasing="ease-out"
                 />
-              </LineChart>
+              </AreaChart>
             </ResponsiveContainer>
           )}
         </motion.div>
@@ -213,7 +230,7 @@ export default function PainSection() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.7 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
           style={{ textAlign: "center", marginTop: "52px" }}
         >
           <p style={{ color: "#0B2545", fontSize: "1.3rem", fontWeight: 700, marginBottom: "20px" }}>
