@@ -64,11 +64,19 @@ export default function Footer() {
         >
           {/* Brand Column */}
           <div>
-            <img
-              src={`${basePath}/logo-bstore.svg`}
-              alt="B'Store Ventures"
-              style={{ height: "44px", width: "auto", marginBottom: "16px" }}
-            />
+            <div style={{
+              background: "#FFFFFF",
+              padding: "6px 12px",
+              borderRadius: "8px",
+              display: "inline-block",
+              marginBottom: "16px"
+            }}>
+              <img
+                src={`${basePath}/logo-bstore.jpg`}
+                alt="B'Store Ventures"
+                style={{ height: "36px", width: "auto", display: "block" }}
+              />
+            </div>
             <p style={{ color: "#7A9CC2", fontSize: "14px", lineHeight: 1.7, maxWidth: "240px" }}>
               Acelerando a transição do comércio físico para o ecossistema digital.
             </p>
@@ -168,7 +176,7 @@ export default function Footer() {
               Explorar todos os cursos →
             </h3>
             <p style={{ color: "#7A9CC2", fontSize: "14px" }}>
-              Centenas de cursos para transformar seu perfil em resultados.
+              Cursos selecionados para transformar seu perfil em resultados.
             </p>
           </div>
           <a

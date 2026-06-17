@@ -7,10 +7,10 @@ import { BlogPost } from "@/types/blog";
 import { Calendar, Clock, ArrowRight } from "lucide-react";
 
 const categoryColors: Record<string, string> = {
-  mercado: "#00C4FF",
-  marketplaces: "#22D3A5",
-  ecommerce: "#A78BFA",
-  estrategia: "#F59E0B",
+  mercado: "#0070B8",
+  marketplaces: "#10B981",
+  ecommerce: "#7C3AED",
+  estrategia: "#D97706",
 };
 
 const categoryLabels: Record<string, string> = {
@@ -66,7 +66,7 @@ export default function BlogPreview() {
     <section
       ref={ref}
       style={{
-        background: "#0B2545",
+        background: "#FFFFFF",
         padding: "100px 24px",
         position: "relative",
         overflow: "hidden",
@@ -89,7 +89,7 @@ export default function BlogPreview() {
         >
           <div>
             <span style={{
-              color: "#00C4FF",
+              color: "#0070B8",
               fontSize: "13px",
               fontWeight: 700,
               letterSpacing: "0.1em",
@@ -102,7 +102,7 @@ export default function BlogPreview() {
             <h2 style={{
               fontSize: "clamp(1.8rem, 4vw, 2.8rem)",
               fontWeight: 900,
-              color: "#F0F6FF",
+              color: "#0B2545",
               letterSpacing: "-0.02em",
             }}>
               Aprenda com quem{" "}
@@ -114,7 +114,7 @@ export default function BlogPreview() {
               href="/blog"
               id="blog-preview-see-all"
               style={{
-                color: "#00C4FF",
+                color: "#0070B8",
                 fontWeight: 700,
                 fontSize: "15px",
                 textDecoration: "none",
@@ -181,7 +181,7 @@ export default function BlogPreview() {
 
                     {/* Title */}
                     <h3 style={{
-                      color: "#F0F6FF",
+                      color: "#0B2545",
                       fontWeight: 800,
                       fontSize: "1.05rem",
                       lineHeight: 1.4,
@@ -192,7 +192,7 @@ export default function BlogPreview() {
 
                     {/* Description */}
                     <p style={{
-                      color: "#7A9CC2",
+                      color: "#1E3A5F",
                       fontSize: "14px",
                       lineHeight: 1.65,
                       display: "-webkit-box",
@@ -208,12 +208,12 @@ export default function BlogPreview() {
                       display: "flex",
                       gap: "16px",
                       paddingTop: "12px",
-                      borderTop: "1px solid rgba(0,196,255,0.08)",
+                      borderTop: "1px solid rgba(11,37,69,0.08)",
                     }}>
-                      <span style={{ color: "#7A9CC2", fontSize: "12px", display: "flex", alignItems: "center", gap: "5px" }}>
+                      <span style={{ color: "#4A6B82", fontSize: "12px", display: "flex", alignItems: "center", gap: "5px" }}>
                         <Calendar size={12} /> {formatDate(post.date)}
                       </span>
-                      <span style={{ color: "#7A9CC2", fontSize: "12px", display: "flex", alignItems: "center", gap: "5px" }}>
+                      <span style={{ color: "#4A6B82", fontSize: "12px", display: "flex", alignItems: "center", gap: "5px" }}>
                         <Clock size={12} /> {post.readTime}
                       </span>
                     </div>

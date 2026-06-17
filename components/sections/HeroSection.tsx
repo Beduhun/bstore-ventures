@@ -252,11 +252,11 @@ export default function HeroSection() {
             letterSpacing: "-0.02em",
           }}
         >
-          Acelerando a transição do{" "}
+          Do balcão ao digital:
           <br className="break" />
-          comércio físico para o ecossistema{" "}
+          descubra o caminho certo para{" "}
           <span className="cyan-underline" style={{ color: "#00C4FF" }}>
-            digital
+            vender online
           </span>
           .
         </motion.h1>
@@ -272,10 +272,9 @@ export default function HeroSection() {
             lineHeight: 1.75,
           }}
         >
-          Descubra em{" "}
-          <span style={{ color: "#F0F6FF", fontWeight: 600 }}>2 minutos</span>{" "}
-          qual caminho vai transformar seu negócio em uma máquina de vendas
-          online.
+          Tem loja física perdendo movimento ou está começando do zero? Responda
+          7 perguntas e receba um plano personalizado, sem achismo e sem
+          promessa de dinheiro fácil.
         </motion.p>
 
         {/* CTA Buttons */}

@@ -12,7 +12,7 @@ export default function QuizProgress({ current, total, percent }: QuizProgressPr
   return (
     <div style={{ marginBottom: "28px" }}>
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "10px" }}>
-        <span style={{ color: "#7A9CC2", fontSize: "13px", fontWeight: 600 }}>
+        <span style={{ color: "#4A6B82", fontSize: "13px", fontWeight: 600 }}>
           Pergunta {current} de {total}
         </span>
         <span style={{ color: "#00C4FF", fontSize: "13px", fontWeight: 700 }}>

@@ -83,14 +83,14 @@ export default function EmailCapture({ onSubmit, onBack, answers }: EmailCapture
           style={{
             fontSize: "clamp(1.3rem, 3vw, 1.7rem)",
             fontWeight: 800,
-            color: "#F0F6FF",
+            color: "#0B2545",
             marginBottom: "10px",
             letterSpacing: "-0.01em",
           }}
         >
           Seu diagnóstico está pronto!
         </h3>
-        <p style={{ color: "#7A9CC2", fontSize: "15px", maxWidth: "400px", margin: "0 auto" }}>
+        <p style={{ color: "#4A6B82", fontSize: "15px", maxWidth: "400px", margin: "0 auto" }}>
           Para onde enviamos seu plano personalizado?
         </p>
       </motion.div>
@@ -106,7 +106,7 @@ export default function EmailCapture({ onSubmit, onBack, answers }: EmailCapture
         <div>
           <label
             htmlFor="email-capture-name"
-            style={{ display: "block", color: "#7A9CC2", fontSize: "13px", fontWeight: 600, marginBottom: "8px", letterSpacing: "0.04em" }}
+            style={{ display: "block", color: "#4A6B82", fontSize: "13px", fontWeight: 600, marginBottom: "8px", letterSpacing: "0.04em" }}
           >
             SEU NOME *
           </label>
@@ -121,9 +121,9 @@ export default function EmailCapture({ onSubmit, onBack, answers }: EmailCapture
               width: "100%",
               padding: "14px 16px",
               borderRadius: "10px",
-              border: "2px solid #1A3A72",
-              background: "#122D5B",
-              color: "#F0F6FF",
+              border: "2px solid rgba(11,37,69,0.12)",
+              background: "#F7FAFC",
+              color: "#0B2545",
               fontSize: "15px",
               fontFamily: "inherit",
               outline: "none",
@@ -131,14 +131,14 @@ export default function EmailCapture({ onSubmit, onBack, answers }: EmailCapture
               boxSizing: "border-box",
             }}
             onFocus={(e) => (e.target.style.borderColor = "#00C4FF")}
-            onBlur={(e) => (e.target.style.borderColor = "#1A3A72")}
+            onBlur={(e) => (e.target.style.borderColor = "rgba(11,37,69,0.12)")}
           />
         </div>
 
         <div>
           <label
             htmlFor="email-capture-email"
-            style={{ display: "block", color: "#7A9CC2", fontSize: "13px", fontWeight: 600, marginBottom: "8px", letterSpacing: "0.04em" }}
+            style={{ display: "block", color: "#4A6B82", fontSize: "13px", fontWeight: 600, marginBottom: "8px", letterSpacing: "0.04em" }}
           >
             SEU MELHOR E-MAIL *
           </label>
@@ -153,9 +153,9 @@ export default function EmailCapture({ onSubmit, onBack, answers }: EmailCapture
               width: "100%",
               padding: "14px 16px",
               borderRadius: "10px",
-              border: "2px solid #1A3A72",
-              background: "#122D5B",
-              color: "#F0F6FF",
+              border: "2px solid rgba(11,37,69,0.12)",
+              background: "#F7FAFC",
+              color: "#0B2545",
               fontSize: "15px",
               fontFamily: "inherit",
               outline: "none",
@@ -163,7 +163,7 @@ export default function EmailCapture({ onSubmit, onBack, answers }: EmailCapture
               boxSizing: "border-box",
             }}
             onFocus={(e) => (e.target.style.borderColor = "#00C4FF")}
-            onBlur={(e) => (e.target.style.borderColor = "#1A3A72")}
+            onBlur={(e) => (e.target.style.borderColor = "rgba(11,37,69,0.12)")}
           />
         </div>
 
@@ -175,7 +175,7 @@ export default function EmailCapture({ onSubmit, onBack, answers }: EmailCapture
         )}
 
         {/* Privacy note */}
-        <p style={{ color: "#7A9CC2", fontSize: "12px", textAlign: "center" }}>
+        <p style={{ color: "#4A6B82", fontSize: "12px", textAlign: "center" }}>
           🔒 Sem spam. Prometemos enviar apenas conteúdo relevante para o seu perfil.
         </p>
 
@@ -220,7 +220,7 @@ export default function EmailCapture({ onSubmit, onBack, answers }: EmailCapture
           style={{
             background: "none",
             border: "none",
-            color: "#7A9CC2",
+            color: "#4A6B82",
             cursor: "pointer",
             fontSize: "14px",
             fontFamily: "inherit",

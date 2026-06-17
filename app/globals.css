@@ -8,8 +8,8 @@
   --cyan: #00C4FF;
   --cyan-glow: #00C4FF33;
   --cyan-dim: #00C4FF1A;
-  --white: #F0F6FF;
-  --muted: #7A9CC2;
+  --white: #0B2545; /* Invert white to navy for text */
+  --muted: #4A6B82;  /* Invert muted text to a readable dark blue/grey */
   --transition-smooth: cubic-bezier(0.25, 0.46, 0.45, 0.94);
   --transition-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
 }
@@ -25,8 +25,8 @@ html {
 }
 
 body {
-  background-color: #0B2545;
-  color: #F0F6FF;
+  background-color: #FFFFFF;
+  color: #0B2545;
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
@@ -48,7 +48,7 @@ section {
 
 /* Smooth section divider gradient */
 section + section {
-  border-top: 1px solid rgba(0,196,255,0.06);
+  border-top: 1px solid rgba(11,37,69,0.06);
 }
 
 /* ========== CUSTOM SCROLLBAR ========== */
@@ -56,10 +56,10 @@ section + section {
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #0B2545;
+  background: #FFFFFF;
 }
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #00C4FF44, #0070B844);
+  background: linear-gradient(180deg, #00C4FF66, #0070B866);
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
@@ -96,18 +96,18 @@ section + section {
 /* ========== GLOW CARD — Premium 3D Hover ========== */
 .glow-card {
   transition: all 0.45s var(--transition-smooth);
-  border: 1px solid #1A3A72;
-  background: #122D5B;
+  border: 1px solid rgba(11, 37, 69, 0.08);
+  background: #FFFFFF;
   will-change: transform, box-shadow;
   transform: perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0);
   backface-visibility: hidden;
+  box-shadow: 0 4px 20px rgba(11, 37, 69, 0.04);
 }
 .glow-card:hover {
-  border-color: rgba(0,196,255,0.3);
+  border-color: rgba(0, 196, 255, 0.3);
   box-shadow:
-    0 0 40px rgba(0,196,255,0.1),
-    0 20px 60px rgba(0,0,0,0.35),
-    inset 0 1px 0 rgba(0,196,255,0.1);
+    0 0 30px rgba(0, 196, 255, 0.06),
+    0 16px 48px rgba(11, 37, 69, 0.08);
   transform: perspective(1000px) rotateX(1deg) translateY(-6px);
 }
 .glow-card:active {
@@ -211,7 +211,7 @@ section + section {
 /* ========== QUIZ PROGRESS BAR ========== */
 .quiz-progress-bar {
   height: 4px;
-  background: #1A3A72;
+  background: rgba(11, 37, 69, 0.08);
   border-radius: 2px;
   overflow: hidden;
 }
@@ -365,16 +365,16 @@ section + section {
 
 /* ========== PREMIUM GLASS CARD ========== */
 .glass-card {
-  background: rgba(18, 45, 91, 0.6);
+  background: rgba(255, 255, 255, 0.75);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(0,196,255,0.12);
+  border: 1px solid rgba(11, 37, 69, 0.08);
   transition: all 0.4s var(--transition-smooth);
 }
 .glass-card:hover {
-  background: rgba(18, 45, 91, 0.8);
-  border-color: rgba(0,196,255,0.25);
-  box-shadow: 0 8px 40px rgba(0,0,0,0.3);
+  background: rgba(255, 255, 255, 0.9);
+  border-color: rgba(0, 196, 255, 0.25);
+  box-shadow: 0 8px 32px rgba(11, 37, 69, 0.08);
 }
 
 /* ========== CURSOR GLOW (Hero) ========== */
@@ -393,13 +393,13 @@ section + section {
 /* ========== RECHARTS ========== */
 .recharts-cartesian-grid-horizontal line,
 .recharts-cartesian-grid-vertical line {
-  stroke: #1A3A72 !important;
+  stroke: rgba(11, 37, 69, 0.08) !important;
 }
 .recharts-tooltip-wrapper .recharts-default-tooltip {
-  background: #122D5B !important;
-  border: 1px solid #00C4FF44 !important;
+  background: #FFFFFF !important;
+  border: 1px solid rgba(11, 37, 69, 0.1) !important;
   border-radius: 8px !important;
-  color: #F0F6FF !important;
+  color: #0B2545 !important;
 }
 
 /* ========== RESPONSIVE ========== */

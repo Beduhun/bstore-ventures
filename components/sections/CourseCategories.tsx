@@ -47,7 +47,7 @@ export default function CourseCategories() {
       id="categorias"
       ref={ref}
       style={{
-        background: "#0B2545",
+        background: "#FFFFFF",
         padding: "100px 24px",
         position: "relative",
         overflow: "hidden",
@@ -61,7 +61,7 @@ export default function CourseCategories() {
         width: "400px",
         height: "400px",
         borderRadius: "50%",
-        background: "radial-gradient(circle, rgba(0,196,255,0.04) 0%, transparent 70%)",
+        background: "radial-gradient(circle, rgba(0,196,255,0.03) 0%, transparent 70%)",
         pointerEvents: "none",
       }} />
 
@@ -75,7 +75,7 @@ export default function CourseCategories() {
         >
           <span style={{
             display: "inline-block",
-            color: "#00C4FF",
+            color: "#0070B8",
             fontSize: "13px",
             fontWeight: 700,
             letterSpacing: "0.1em",
@@ -87,7 +87,7 @@ export default function CourseCategories() {
           <h2 style={{
             fontSize: "clamp(1.8rem, 4vw, 2.8rem)",
             fontWeight: 900,
-            color: "#F0F6FF",
+            color: "#0B2545",
             letterSpacing: "-0.02em",
           }}>
             Qual é o seu perfil de{" "}
@@ -126,14 +126,14 @@ export default function CourseCategories() {
                 {cat.icon}
               </motion.div>
               <h3 style={{
-                color: "#F0F6FF",
+                color: "#0B2545",
                 fontWeight: 800,
                 fontSize: "1.2rem",
                 letterSpacing: "-0.01em",
               }}>
                 {cat.title}
               </h3>
-              <p style={{ color: "#7A9CC2", fontSize: "14px", lineHeight: 1.7, flex: 1 }}>
+              <p style={{ color: "#1E3A5F", fontSize: "14px", lineHeight: 1.7, flex: 1 }}>
                 {cat.description}
               </p>
               <motion.a
@@ -141,7 +141,7 @@ export default function CourseCategories() {
                 id={cat.id}
                 whileHover={{ x: 4 }}
                 style={{
-                  color: "#00C4FF",
+                  color: "#0070B8",
                   fontWeight: 700,
                   fontSize: "14px",
                   textDecoration: "none",

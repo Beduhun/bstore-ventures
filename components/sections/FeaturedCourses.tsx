@@ -8,7 +8,7 @@ const featuredCourses = [
     title: "Mercado Livre do Zero",
     description: "Do cadastro à primeira venda em 7 dias. O maior marketplace do Brasil ao seu alcance.",
     tag: "Mais Popular",
-    tagColor: "#00C4FF",
+    tagColor: "#0070B8",
     href: "#LINK_AFILIADO_ML",
     icon: "🛍️",
     id: "course-ml",
@@ -17,7 +17,7 @@ const featuredCourses = [
     title: "E-commerce Completo",
     description: "Crie sua loja virtual do zero e construa uma marca com autoridade.",
     tag: "Recomendado",
-    tagColor: "#22D3A5",
+    tagColor: "#10B981",
     href: "#LINK_AFILIADO_ECOMMERCE",
     icon: "🌐",
     id: "course-ecommerce",
@@ -26,7 +26,7 @@ const featuredCourses = [
     title: "Amazon FBA Brasil",
     description: "Venda em dólar morando no Brasil. Faturamento em moeda forte.",
     tag: "Alto Potencial",
-    tagColor: "#F59E0B",
+    tagColor: "#D97706",
     href: "#LINK_AFILIADO_AMAZON",
     icon: "💵",
     id: "course-amazon",
@@ -35,7 +35,7 @@ const featuredCourses = [
     title: "Shopee para Iniciantes",
     description: "Do zero ao primeiro pedido. O marketplace que mais cresce no Brasil.",
     tag: "Iniciante",
-    tagColor: "#A78BFA",
+    tagColor: "#7C3AED",
     href: "#LINK_AFILIADO_SHOPEE",
     icon: "📦",
     id: "course-shopee",
@@ -51,7 +51,7 @@ export default function FeaturedCourses() {
       id="cursos"
       ref={ref}
       style={{
-        background: "linear-gradient(180deg, #071A38 0%, #0B2545 100%)",
+        background: "#FFFFFF",
         padding: "100px 24px",
         position: "relative",
         overflow: "hidden",
@@ -59,7 +59,7 @@ export default function FeaturedCourses() {
     >
       {/* Ambient glow */}
       <motion.div
-        animate={{ opacity: [0.02, 0.05, 0.02] }}
+        animate={{ opacity: [0.01, 0.03, 0.01] }}
         transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
         style={{
           position: "absolute",
@@ -69,7 +69,7 @@ export default function FeaturedCourses() {
           width: "600px",
           height: "600px",
           borderRadius: "50%",
-          background: "radial-gradient(circle, rgba(0,196,255,0.12) 0%, transparent 70%)",
+          background: "radial-gradient(circle, rgba(0,196,255,0.06) 0%, transparent 70%)",
           pointerEvents: "none",
         }}
       />
@@ -83,7 +83,7 @@ export default function FeaturedCourses() {
           style={{ textAlign: "center", marginBottom: "60px" }}
         >
           <span style={{
-            color: "#00C4FF",
+            color: "#0070B8",
             fontSize: "13px",
             fontWeight: 700,
             letterSpacing: "0.1em",
@@ -96,13 +96,13 @@ export default function FeaturedCourses() {
           <h2 style={{
             fontSize: "clamp(1.8rem, 4vw, 2.8rem)",
             fontWeight: 900,
-            color: "#F0F6FF",
+            color: "#0B2545",
             letterSpacing: "-0.02em",
           }}>
             Escolhidos pelos nossos{" "}
             <span className="gradient-text">especialistas</span>
           </h2>
-          <p style={{ color: "#7A9CC2", fontSize: "1rem", marginTop: "12px", maxWidth: "480px", margin: "12px auto 0" }}>
+          <p style={{ color: "#1E3A5F", fontSize: "1rem", marginTop: "12px", maxWidth: "480px", margin: "12px auto 0" }}>
             Cursos validados com resultados reais de alunos que venderam nos primeiros 30 dias.
           </p>
         </motion.div>
@@ -172,10 +172,10 @@ export default function FeaturedCourses() {
               </motion.div>
 
               {/* Content */}
-              <h3 style={{ color: "#F0F6FF", fontWeight: 800, fontSize: "1.15rem" }}>
+              <h3 style={{ color: "#0B2545", fontWeight: 800, fontSize: "1.15rem" }}>
                 {course.title}
               </h3>
-              <p style={{ color: "#7A9CC2", fontSize: "14px", lineHeight: 1.65, flex: 1 }}>
+              <p style={{ color: "#1E3A5F", fontSize: "14px", lineHeight: 1.65, flex: 1 }}>
                 {course.description}
               </p>
 

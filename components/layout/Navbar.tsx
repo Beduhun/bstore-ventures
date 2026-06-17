@@ -41,18 +41,27 @@ export default function Navbar() {
         alignItems: "center",
         justifyContent: "space-between",
         backdropFilter: scrolled ? "blur(20px) saturate(1.2)" : "none",
-        backgroundColor: scrolled ? "rgba(11,37,69,0.92)" : "transparent",
-        borderBottom: scrolled ? "1px solid rgba(0,196,255,0.12)" : "1px solid transparent",
+        backgroundColor: scrolled ? "rgba(255, 255, 255, 0.95)" : "transparent",
+        borderBottom: scrolled ? "1px solid rgba(11, 37, 69, 0.08)" : "1px solid transparent",
         transition: "all 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94)",
       }}
     >
       {/* Logo */}
       <Link href="/" style={{ display: "flex", alignItems: "center", gap: "10px", textDecoration: "none" }}>
-        <img
-          src={`${basePath}/logo-bstore.svg`}
-          alt="B'Store Ventures"
-          style={{ height: "40px", width: "auto" }}
-        />
+        <div style={{
+          background: scrolled ? "transparent" : "#FFFFFF",
+          padding: scrolled ? "0" : "4px 10px",
+          borderRadius: scrolled ? "0" : "6px",
+          display: "flex",
+          alignItems: "center",
+          transition: "all 0.3s ease"
+        }}>
+          <img
+            src={`${basePath}/logo-bstore.jpg`}
+            alt="B'Store Ventures"
+            style={{ height: scrolled ? "40px" : "32px", width: "auto" }}
+          />
+        </div>
       </Link>
 
       {/* Desktop Nav */}
@@ -62,14 +71,14 @@ export default function Navbar() {
             key={link.label}
             href={link.href}
             style={{
-              color: "#7A9CC2",
+              color: scrolled ? "#0B2545" : "#7A9CC2",
               textDecoration: "none",
               fontSize: "15px",
-              fontWeight: 500,
+              fontWeight: scrolled ? 600 : 500,
               transition: "color 0.2s",
             }}
-            onMouseEnter={(e) => ((e.target as HTMLAnchorElement).style.color = "#F0F6FF")}
-            onMouseLeave={(e) => ((e.target as HTMLAnchorElement).style.color = "#7A9CC2")}
+            onMouseEnter={(e) => ((e.target as HTMLAnchorElement).style.color = scrolled ? "#0070B8" : "#F0F6FF")}
+            onMouseLeave={(e) => ((e.target as HTMLAnchorElement).style.color = scrolled ? "#0B2545" : "#7A9CC2")}
           >
             {link.label}
           </Link>
@@ -99,7 +108,7 @@ export default function Navbar() {
         style={{
           background: "none",
           border: "none",
-          color: "#F0F6FF",
+          color: scrolled ? "#0B2545" : "#F0F6FF",
           cursor: "pointer",
           display: "none",
           padding: "8px",
@@ -123,9 +132,9 @@ export default function Navbar() {
               top: "72px",
               left: 0,
               right: 0,
-              background: "rgba(11,37,69,0.97)",
+              background: scrolled ? "rgba(255, 255, 255, 0.98)" : "rgba(11, 37, 69, 0.98)",
               backdropFilter: "blur(20px)",
-              borderBottom: "1px solid rgba(0,196,255,0.15)",
+              borderBottom: scrolled ? "1px solid rgba(11, 37, 69, 0.08)" : "1px solid rgba(0, 196, 255, 0.12)",
               padding: "24px",
               display: "flex",
               flexDirection: "column",
@@ -138,7 +147,7 @@ export default function Navbar() {
                 href={link.href}
                 onClick={() => setMenuOpen(false)}
                 style={{
-                  color: "#F0F6FF",
+                  color: scrolled ? "#0B2545" : "#F0F6FF",
                   textDecoration: "none",
                   fontSize: "18px",
                   fontWeight: 600,

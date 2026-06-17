@@ -19,8 +19,8 @@ export default function QuizResult({ result, onReset }: QuizResultProps) {
       {/* Result Header */}
       <div
         style={{
-          background: "linear-gradient(135deg, rgba(0,196,255,0.08) 0%, rgba(0,112,184,0.08) 100%)",
-          border: "1px solid rgba(0,196,255,0.25)",
+          background: "linear-gradient(135deg, rgba(0,196,255,0.06) 0%, rgba(0,112,184,0.06) 100%)",
+          border: "1px solid rgba(0,196,255,0.2)",
           borderRadius: "20px",
           padding: "32px 28px",
           marginBottom: "24px",
@@ -36,7 +36,7 @@ export default function QuizResult({ result, onReset }: QuizResultProps) {
           width: "180px",
           height: "180px",
           borderRadius: "50%",
-          background: "radial-gradient(circle, rgba(0,196,255,0.15) 0%, transparent 70%)",
+          background: "radial-gradient(circle, rgba(0,196,255,0.1) 0%, transparent 70%)",
           pointerEvents: "none",
         }} />
 
@@ -44,7 +44,7 @@ export default function QuizResult({ result, onReset }: QuizResultProps) {
           style={{
             fontSize: "clamp(1.2rem, 3vw, 1.55rem)",
             fontWeight: 800,
-            color: "#F0F6FF",
+            color: "#0B2545",
             marginBottom: "16px",
             lineHeight: 1.35,
             letterSpacing: "-0.01em",
@@ -52,7 +52,7 @@ export default function QuizResult({ result, onReset }: QuizResultProps) {
         >
           {result.headline}
         </h3>
-        <p style={{ color: "#7A9CC2", fontSize: "15px", lineHeight: 1.75 }}>
+        <p style={{ color: "#1E3A5F", fontSize: "15px", lineHeight: 1.75 }}>
           {result.diagnosis}
         </p>
       </div>
@@ -61,7 +61,7 @@ export default function QuizResult({ result, onReset }: QuizResultProps) {
       <div style={{ marginBottom: "28px" }}>
         <h4
           style={{
-            color: "#00C4FF",
+            color: "#0B2545",
             fontSize: "12px",
             fontWeight: 700,
             letterSpacing: "0.1em",
@@ -88,8 +88,8 @@ export default function QuizResult({ result, onReset }: QuizResultProps) {
                 alignItems: "center",
                 gap: "14px",
                 padding: "16px 20px",
-                background: "#122D5B",
-                border: "1px solid #1A3A72",
+                background: "#F7FAFC",
+                border: "1px solid rgba(11,37,69,0.08)",
                 borderRadius: "12px",
                 textDecoration: "none",
                 transition: "all 0.2s ease",
@@ -99,21 +99,21 @@ export default function QuizResult({ result, onReset }: QuizResultProps) {
                 (e.currentTarget as HTMLAnchorElement).style.background = "rgba(0,196,255,0.06)";
               }}
               onMouseLeave={(e) => {
-                (e.currentTarget as HTMLAnchorElement).style.borderColor = "#1A3A72";
-                (e.currentTarget as HTMLAnchorElement).style.background = "#122D5B";
+                (e.currentTarget as HTMLAnchorElement).style.borderColor = "rgba(11,37,69,0.08)";
+                (e.currentTarget as HTMLAnchorElement).style.background = "#F7FAFC";
               }}
             >
               <span style={{ fontSize: "1.8rem", flexShrink: 0 }}>{rec.icon}</span>
               <div style={{ flex: 1 }}>
                 <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "4px" }}>
-                  <span style={{ color: "#F0F6FF", fontWeight: 600, fontSize: "15px" }}>
+                  <span style={{ color: "#0B2545", fontWeight: 600, fontSize: "15px" }}>
                     {rec.label}
                   </span>
                   {rec.badge && (
                     <span style={{
-                      background: "rgba(0,196,255,0.15)",
-                      border: "1px solid rgba(0,196,255,0.3)",
-                      color: "#00C4FF",
+                      background: "rgba(0,196,255,0.06)",
+                      border: "1px solid rgba(0,196,255,0.2)",
+                      color: "#0070B8",
                       padding: "2px 8px",
                       borderRadius: "100px",
                       fontSize: "10px",
@@ -126,7 +126,7 @@ export default function QuizResult({ result, onReset }: QuizResultProps) {
                   )}
                 </div>
               </div>
-              <ExternalLink size={16} style={{ color: "#7A9CC2", flexShrink: 0 }} />
+              <ExternalLink size={16} style={{ color: "#4A6B82", flexShrink: 0 }} />
             </motion.a>
           ))}
         </div>
@@ -156,8 +156,8 @@ export default function QuizResult({ result, onReset }: QuizResultProps) {
           onClick={onReset}
           style={{
             background: "none",
-            border: "1px solid #1A3A72",
-            color: "#7A9CC2",
+            border: "1px solid rgba(11,37,69,0.12)",
+            color: "#4A6B82",
             padding: "12px 24px",
             borderRadius: "10px",
             fontSize: "14px",
@@ -172,11 +172,11 @@ export default function QuizResult({ result, onReset }: QuizResultProps) {
           }}
           onMouseEnter={(e) => {
             (e.currentTarget as HTMLButtonElement).style.borderColor = "#00C4FF44";
-            (e.currentTarget as HTMLButtonElement).style.color = "#F0F6FF";
+            (e.currentTarget as HTMLButtonElement).style.color = "#0B2545";
           }}
           onMouseLeave={(e) => {
-            (e.currentTarget as HTMLButtonElement).style.borderColor = "#1A3A72";
-            (e.currentTarget as HTMLButtonElement).style.color = "#7A9CC2";
+            (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(11,37,69,0.12)";
+            (e.currentTarget as HTMLButtonElement).style.color = "#4A6B82";
           }}
         >
           <RotateCcw size={14} />

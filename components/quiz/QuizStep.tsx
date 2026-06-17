@@ -21,7 +21,7 @@ export default function QuizStep({ question, selectedAnswer, onAnswer, onPrev }:
           style={{
             fontSize: "clamp(1.2rem, 3vw, 1.55rem)",
             fontWeight: 800,
-            color: "#F0F6FF",
+            color: "#0B2545",
             lineHeight: 1.3,
             marginBottom: "8px",
             letterSpacing: "-0.01em",
@@ -30,7 +30,7 @@ export default function QuizStep({ question, selectedAnswer, onAnswer, onPrev }:
           {question.question}
         </h3>
         {question.subtitle && (
-          <p style={{ color: "#7A9CC2", fontSize: "14px" }}>{question.subtitle}</p>
+          <p style={{ color: "#4A6B82", fontSize: "14px" }}>{question.subtitle}</p>
         )}
       </div>
 
@@ -54,11 +54,11 @@ export default function QuizStep({ question, selectedAnswer, onAnswer, onPrev }:
                 borderRadius: "12px",
                 border: isSelected
                   ? "2px solid #00C4FF"
-                  : "2px solid rgba(26,58,114,0.8)",
+                  : "2px solid rgba(11,37,69,0.08)",
                 background: isSelected
-                  ? "rgba(0,196,255,0.1)"
-                  : "#122D5B",
-                color: isSelected ? "#F0F6FF" : "#7A9CC2",
+                  ? "rgba(0,196,255,0.06)"
+                  : "#F7FAFC",
+                color: isSelected ? "#0B2545" : "#1E3A5F",
                 textAlign: "left",
                 cursor: "pointer",
                 fontSize: "15px",
@@ -67,7 +67,7 @@ export default function QuizStep({ question, selectedAnswer, onAnswer, onPrev }:
                 alignItems: "center",
                 gap: "12px",
                 transition: "all 0.2s ease",
-                boxShadow: isSelected ? "0 0 20px rgba(0,196,255,0.2)" : "none",
+                boxShadow: isSelected ? "0 4px 12px rgba(0,196,255,0.15)" : "none",
                 fontFamily: "inherit",
               }}
             >
@@ -77,7 +77,7 @@ export default function QuizStep({ question, selectedAnswer, onAnswer, onPrev }:
                   width: "20px",
                   height: "20px",
                   borderRadius: "50%",
-                  border: isSelected ? "none" : "2px solid #1A3A72",
+                  border: isSelected ? "none" : "2px solid rgba(11,37,69,0.15)",
                   background: isSelected
                     ? "linear-gradient(135deg, #00C4FF 0%, #0070B8 100%)"
                     : "transparent",
@@ -85,7 +85,7 @@ export default function QuizStep({ question, selectedAnswer, onAnswer, onPrev }:
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
-                  boxShadow: isSelected ? "0 0 10px #00C4FF66" : "none",
+                  boxShadow: isSelected ? "0 0 10px #00C4FF44" : "none",
                   transition: "all 0.2s",
                 }}
               >
@@ -113,7 +113,7 @@ export default function QuizStep({ question, selectedAnswer, onAnswer, onPrev }:
             marginTop: "24px",
             background: "none",
             border: "none",
-            color: "#7A9CC2",
+            color: "#4A6B82",
             cursor: "pointer",
             fontSize: "14px",
             fontWeight: 500,
@@ -123,8 +123,8 @@ export default function QuizStep({ question, selectedAnswer, onAnswer, onPrev }:
             fontFamily: "inherit",
             transition: "color 0.2s",
           }}
-          onMouseEnter={(e) => ((e.currentTarget as HTMLButtonElement).style.color = "#F0F6FF")}
-          onMouseLeave={(e) => ((e.currentTarget as HTMLButtonElement).style.color = "#7A9CC2")}
+          onMouseEnter={(e) => ((e.currentTarget as HTMLButtonElement).style.color = "#0B2545")}
+          onMouseLeave={(e) => ((e.currentTarget as HTMLButtonElement).style.color = "#4A6B82")}
         >
           <ChevronLeft size={16} />
           Pergunta anterior

@@ -89,7 +89,7 @@ export default function PainSection() {
     <section
       ref={sectionRef}
       style={{
-        background: "linear-gradient(180deg, #071A38 0%, #0B2545 100%)",
+        background: "#F7FAFC",
         padding: "100px 24px",
         position: "relative",
         overflow: "hidden",
@@ -97,7 +97,7 @@ export default function PainSection() {
     >
       {/* Ambient glow */}
       <motion.div
-        animate={{ opacity: [0.03, 0.06, 0.03] }}
+        animate={{ opacity: [0.02, 0.04, 0.02] }}
         transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
         style={{
           position: "absolute",
@@ -106,7 +106,7 @@ export default function PainSection() {
           width: "500px",
           height: "500px",
           borderRadius: "50%",
-          background: "radial-gradient(circle, rgba(0,196,255,0.1) 0%, transparent 70%)",
+          background: "radial-gradient(circle, rgba(0,196,255,0.06) 0%, transparent 70%)",
           pointerEvents: "none",
         }}
       />
@@ -123,7 +123,7 @@ export default function PainSection() {
             style={{
               fontSize: "clamp(1.8rem, 4vw, 3rem)",
               fontWeight: 900,
-              color: "#F0F6FF",
+              color: "#0B2545",
               marginBottom: "16px",
               letterSpacing: "-0.02em",
             }}
@@ -131,8 +131,8 @@ export default function PainSection() {
             O mercado não vai te{" "}
             <span className="gradient-text">esperar.</span>
           </h2>
-          <p style={{ color: "#7A9CC2", fontSize: "1.1rem", maxWidth: "520px", margin: "0 auto" }}>
-            Enquanto você hesita, os números provam que a janela de oportunidade está aberta — e não vai ficar assim para sempre.
+          <p style={{ color: "#1E3A5F", fontSize: "1.1rem", maxWidth: "520px", margin: "0 auto" }}>
+            O aluguel não espera o fim do mês e o movimento de rua cai a cada ano, enquanto o digital cresce. Os números abaixo mostram o tamanho da oportunidade e o custo de ficar parado.
           </p>
         </motion.div>
 
@@ -162,17 +162,17 @@ export default function PainSection() {
                 style={{
                   fontSize: "2.8rem",
                   fontWeight: 900,
-                  color: "#00C4FF",
+                  color: "#0B2545",
                   lineHeight: 1,
                   marginBottom: "10px",
                 }}
               >
                 <AnimatedCounter target={stat.value} suffix={stat.suffix} prefix={stat.prefix} />
               </div>
-              <div style={{ color: "#F0F6FF", fontWeight: 600, fontSize: "15px", marginBottom: "6px" }}>
+              <div style={{ color: "#1E3A5F", fontWeight: 600, fontSize: "15px", marginBottom: "6px" }}>
                 {stat.label}
               </div>
-              <div style={{ color: "#7A9CC2", fontSize: "12px" }}>Fonte: {stat.source}</div>
+              <div style={{ color: "#4A6B82", fontSize: "12px" }}>Fonte: {stat.source}</div>
             </motion.div>
           ))}
         </div>
@@ -185,17 +185,17 @@ export default function PainSection() {
           className="glow-card"
           style={{ borderRadius: "20px", padding: "36px 24px 24px" }}
         >
-          <h3 style={{ color: "#F0F6FF", fontWeight: 800, fontSize: "1.1rem", marginBottom: "8px" }}>
+          <h3 style={{ color: "#0B2545", fontWeight: 800, fontSize: "1.1rem", marginBottom: "8px" }}>
             Crescimento do E-commerce Brasileiro
           </h3>
-          <p style={{ color: "#7A9CC2", fontSize: "13px", marginBottom: "28px" }}>
+          <p style={{ color: "#4A6B82", fontSize: "13px", marginBottom: "28px" }}>
             Volume em R$ bilhões — Fonte: ABComm / Neotrust
           </p>
           <ResponsiveContainer width="100%" height={280}>
             <LineChart data={chartData}>
-              <CartesianGrid strokeDasharray="3 3" stroke="#1A3A72" />
-              <XAxis dataKey="ano" stroke="#7A9CC2" tick={{ fill: "#7A9CC2", fontSize: 13 }} />
-              <YAxis stroke="#7A9CC2" tick={{ fill: "#7A9CC2", fontSize: 13 }} unit="bi" />
+              <CartesianGrid strokeDasharray="3 3" stroke="rgba(11,37,69,0.08)" />
+              <XAxis dataKey="ano" stroke="#4A6B82" tick={{ fill: "#4A6B82", fontSize: 13 }} />
+              <YAxis stroke="#4A6B82" tick={{ fill: "#4A6B82", fontSize: 13 }} unit="bi" />
               <Tooltip content={<CustomTooltip />} />
               <Line
                 type="monotone"
@@ -216,13 +216,13 @@ export default function PainSection() {
           transition={{ duration: 0.6, delay: 0.7 }}
           style={{ textAlign: "center", marginTop: "52px" }}
         >
-          <p style={{ color: "#F0F6FF", fontSize: "1.3rem", fontWeight: 700, marginBottom: "20px" }}>
+          <p style={{ color: "#0B2545", fontSize: "1.3rem", fontWeight: 700, marginBottom: "20px" }}>
             Você ainda quer ficar fora dessa onda? 🌊
           </p>
           <motion.a
             href={`${basePath}/#quiz`}
             id="pain-cta"
-            className="btn-ghost"
+            className="btn-cyan pulse-glow"
             whileHover={{ scale: 1.03, y: -2 }}
             style={{
               padding: "14px 32px",
