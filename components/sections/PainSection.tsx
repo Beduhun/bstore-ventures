@@ -186,22 +186,27 @@ export default function PainSection() {
           <p style={{ color: "#4A6B82", fontSize: "13px", marginBottom: "28px" }}>
             Volume em R$ bilhões — Fonte: ABComm / Neotrust
           </p>
-          <ResponsiveContainer width="100%" height={280}>
-            <LineChart data={chartData}>
-              <CartesianGrid strokeDasharray="3 3" stroke="rgba(11,37,69,0.08)" />
-              <XAxis dataKey="ano" stroke="#4A6B82" tick={{ fill: "#4A6B82", fontSize: 13 }} />
-              <YAxis stroke="#4A6B82" tick={{ fill: "#4A6B82", fontSize: 13 }} unit="bi" />
-              <Tooltip content={<CustomTooltip />} />
-              <Line
-                type="monotone"
-                dataKey="valor"
-                stroke="#00C4FF"
-                strokeWidth={3}
-                dot={{ r: 5, fill: "#00C4FF", strokeWidth: 0 }}
-                activeDot={{ r: 8, fill: "#00C4FF" }}
-              />
-            </LineChart>
-          </ResponsiveContainer>
+          {inView && (
+            <ResponsiveContainer width="100%" height={280}>
+              <LineChart data={chartData}>
+                <CartesianGrid strokeDasharray="3 3" stroke="rgba(11,37,69,0.08)" />
+                <XAxis dataKey="ano" stroke="#4A6B82" tick={{ fill: "#4A6B82", fontSize: 13 }} />
+                <YAxis stroke="#4A6B82" tick={{ fill: "#4A6B82", fontSize: 13 }} unit="bi" />
+                <Tooltip content={<CustomTooltip />} />
+                <Line
+                  type="monotone"
+                  dataKey="valor"
+                  stroke="#00C4FF"
+                  strokeWidth={3}
+                  dot={{ r: 5, fill: "#00C4FF", strokeWidth: 0 }}
+                  activeDot={{ r: 8, fill: "#00C4FF" }}
+                  isAnimationActive={true}
+                  animationDuration={2200}
+                  animationEasing="ease-out"
+                />
+              </LineChart>
+            </ResponsiveContainer>
+          )}
         </motion.div>
 
         {/* Bottom CTA */}

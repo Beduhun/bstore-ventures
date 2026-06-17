@@ -8,12 +8,14 @@ interface LogoProps {
 
 // Helper component to render the B shape layers for the 3D effect
 const BLogoIcon = ({ fill, stroke }: { fill: string; stroke: string }) => {
-  // Left Column Bar (slanted parallelogram)
-  const logoPathLeft = "M24 20 L40 20 L16 120 L0 120 Z";
+  // Left Column Bar (slanted, cut at the top-right and bottom-right to float)
+  const logoPathLeft = "M20 20 L42 28 L26 112 L5 120 Z";
   
-  // Right Loops of the B (slanted and cut, parallel to the left bar)
+  // Right Loops of the B (slanted, with sharp top-left and bottom-left tips pointing outward, parallel to left bar)
   const logoPathRight = `
-    M50 20 L86 20 Q106 20 102 45 Q98 70 82 70 L40 70 L92 70 Q112 70 107 95 Q102 120 74 120 L30 120 Z
+    M 30 20 L 86 20 Q 106 20 102 45 Q 98 70 82 70 
+    L 42 70 L 92 70 Q 112 70 107 95 Q 102 120 74 120 
+    L 10 120 L 32 112 L 48 28 Z
     M58 32 L74 32 Q86 32 84 45 Q82 58 68 58 L52 58 Q54 45 58 32 Z
     M50 82 L76 82 Q88 82 86 95 Q84 108 68 108 L44 108 Q46 95 50 82 Z
   `;
