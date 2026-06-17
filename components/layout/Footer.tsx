@@ -71,7 +71,7 @@ export default function Footer() {
             }}>
               <Logo light={true} height={36} />
             </div>
-            <p style={{ color: "#7A9CC2", fontSize: "14px", lineHeight: 1.7, maxWidth: "240px" }}>
+            <p style={{ color: "#9EBDDF", fontSize: "14px", lineHeight: 1.7, maxWidth: "240px" }}>
               Acelerando a transição do comércio físico para o ecossistema digital.
             </p>
             <div style={{ display: "flex", gap: "16px", marginTop: "20px" }}>
@@ -81,13 +81,13 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 id="footer-instagram"
                 style={{
-                  color: "#7A9CC2",
+                  color: "#9EBDDF",
                   transition: "color 0.2s",
                   display: "flex",
                   alignItems: "center",
                 }}
                 onMouseEnter={(e) => ((e.currentTarget as HTMLAnchorElement).style.color = "#00C4FF")}
-                onMouseLeave={(e) => ((e.currentTarget as HTMLAnchorElement).style.color = "#7A9CC2")}
+                onMouseLeave={(e) => ((e.currentTarget as HTMLAnchorElement).style.color = "#9EBDDF")}
               >
                 <InstagramIcon />
               </a>
@@ -97,13 +97,13 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 id="footer-youtube"
                 style={{
-                  color: "#7A9CC2",
+                  color: "#9EBDDF",
                   transition: "color 0.2s",
                   display: "flex",
                   alignItems: "center",
                 }}
                 onMouseEnter={(e) => ((e.currentTarget as HTMLAnchorElement).style.color = "#00C4FF")}
-                onMouseLeave={(e) => ((e.currentTarget as HTMLAnchorElement).style.color = "#7A9CC2")}
+                onMouseLeave={(e) => ((e.currentTarget as HTMLAnchorElement).style.color = "#9EBDDF")}
               >
                 <YoutubeIcon />
               </a>
@@ -113,13 +113,13 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 id="footer-linkedin"
                 style={{
-                  color: "#7A9CC2",
+                  color: "#9EBDDF",
                   transition: "color 0.2s",
                   display: "flex",
                   alignItems: "center",
                 }}
                 onMouseEnter={(e) => ((e.currentTarget as HTMLAnchorElement).style.color = "#00C4FF")}
-                onMouseLeave={(e) => ((e.currentTarget as HTMLAnchorElement).style.color = "#7A9CC2")}
+                onMouseLeave={(e) => ((e.currentTarget as HTMLAnchorElement).style.color = "#9EBDDF")}
               >
                 <LinkedinIcon />
               </a>
@@ -137,9 +137,9 @@ export default function Footer() {
                   <li key={link.href}>
                     <Link
                       href={link.href}
-                      style={{ color: "#7A9CC2", textDecoration: "none", fontSize: "14px", transition: "color 0.2s" }}
+                      style={{ color: "#9EBDDF", textDecoration: "none", fontSize: "14px", transition: "color 0.2s" }}
                       onMouseEnter={(e) => ((e.currentTarget as HTMLAnchorElement).style.color = "#00C4FF")}
-                      onMouseLeave={(e) => ((e.currentTarget as HTMLAnchorElement).style.color = "#7A9CC2")}
+                      onMouseLeave={(e) => ((e.currentTarget as HTMLAnchorElement).style.color = "#9EBDDF")}
                     >
                       {link.label}
                     </Link>
@@ -169,7 +169,7 @@ export default function Footer() {
             <h3 style={{ color: "#F0F6FF", fontWeight: 800, fontSize: "20px", marginBottom: "6px" }}>
               Explorar todos os cursos →
             </h3>
-            <p style={{ color: "#7A9CC2", fontSize: "14px" }}>
+            <p style={{ color: "#9EBDDF", fontSize: "14px" }}>
               Cursos selecionados para transformar seu perfil em resultados.
             </p>
           </div>
@@ -204,10 +204,10 @@ export default function Footer() {
             gap: "12px",
           }}
         >
-          <p style={{ color: "#7A9CC2", fontSize: "13px" }}>
+          <p style={{ color: "#9EBDDF", fontSize: "13px" }}>
             © {new Date().getFullYear()} B'Store Ventures. Todos os direitos reservados.
           </p>
-          <p style={{ color: "#7A9CC2", fontSize: "12px" }}>
+          <p style={{ color: "#9EBDDF", fontSize: "12px" }}>
             Este site contém links de afiliados. Ao clicar e comprar, podemos receber uma comissão.
           </p>
         </div>

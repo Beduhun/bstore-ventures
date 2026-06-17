@@ -7,7 +7,7 @@ export const tokens = {
     cyanGlow:  "#00C4FF33",
     cyanDim:   "#00C4FF1A",
     white:     "#F0F6FF",
-    muted:     "#7A9CC2",
+    muted:     "#9EBDDF",
   },
   gradients: {
     cyan: "linear-gradient(135deg, #00C4FF 0%, #0070B8 100%)",

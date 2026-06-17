@@ -64,14 +64,14 @@ export default function Navbar() {
             key={link.label}
             href={link.href}
             style={{
-              color: scrolled ? "#0B2545" : "#7A9CC2",
+              color: scrolled ? "#0B2545" : "#9EBDDF",
               textDecoration: "none",
               fontSize: "15px",
               fontWeight: scrolled ? 600 : 500,
               transition: "color 0.2s",
             }}
             onMouseEnter={(e) => ((e.target as HTMLAnchorElement).style.color = scrolled ? "#0070B8" : "#F0F6FF")}
-            onMouseLeave={(e) => ((e.target as HTMLAnchorElement).style.color = scrolled ? "#0B2545" : "#7A9CC2")}
+            onMouseLeave={(e) => ((e.target as HTMLAnchorElement).style.color = scrolled ? "#0B2545" : "#9EBDDF")}
           >
             {link.label}
           </Link>

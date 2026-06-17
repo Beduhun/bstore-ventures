@@ -267,7 +267,7 @@ export default function HeroSection() {
           variants={item}
           style={{
             fontSize: "clamp(1rem, 2.5vw, 1.25rem)",
-            color: "#7A9CC2",
+            color: "#9EBDDF",
             maxWidth: "640px",
             margin: "0 auto 44px",
             lineHeight: 1.75,
@@ -347,7 +347,7 @@ export default function HeroSection() {
                 >
                   {displayValue}
                 </div>
-                <div style={{ fontSize: "12px", color: "#7A9CC2", marginTop: "4px" }}>
+                <div style={{ fontSize: "12px", color: "#9EBDDF", marginTop: "4px" }}>
                   {stat.label}
                 </div>
               </motion.div>

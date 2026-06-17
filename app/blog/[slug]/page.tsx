@@ -6,6 +6,7 @@ import Link from "next/link";
 import BlogCTA from "@/components/blog/BlogCTA";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import Markdown from "markdown-to-jsx";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -47,35 +48,83 @@ const categoryLabels: Record<string, string> = {
   estrategia: "Estratégia",
 };
 
-function renderMarkdown(content: string): string {
-  return content
-    // Headers
-    .replace(/^### (.+)$/gm, '<h3 style="color:#F0F6FF;font-size:1.15rem;font-weight:700;margin:28px 0 12px;letter-spacing:-0.01em">$1</h3>')
-    .replace(/^## (.+)$/gm, '<h2 style="color:#F0F6FF;font-size:1.4rem;font-weight:800;margin:36px 0 14px;letter-spacing:-0.01em">$1</h2>')
-    .replace(/^# (.+)$/gm, '<h1 style="color:#F0F6FF;font-size:1.8rem;font-weight:900;margin:40px 0 16px">$1</h1>')
-    // Bold
-    .replace(/\*\*(.+?)\*\*/g, '<strong style="color:#F0F6FF;font-weight:700">$1</strong>')
-    // Italic
-    .replace(/\*(.+?)\*/g, '<em>$1</em>')
-    // Code blocks
-    .replace(/```[\s\S]*?```/g, (match) => {
-      const code = match.replace(/```\w*\n?/, '').replace(/```$/, '');
-      return `<pre style="background:#071A38;border:1px solid rgba(0,196,255,0.15);border-radius:10px;padding:20px;overflow-x:auto;margin:20px 0"><code style="color:#00C4FF;font-family:monospace;font-size:13px">${code}</code></pre>`;
-    })
-    // Tables
-    .replace(/\|(.+)\|/g, (match) => {
-      if (match.includes('---')) return '';
-      const cells = match.split('|').filter(c => c.trim());
-      const isHeader = false;
-      return `<tr>${cells.map(c => `<td style="padding:10px 14px;border-bottom:1px solid rgba(0,196,255,0.08);color:#7A9CC2;font-size:14px">${c.trim()}</td>`).join('')}</tr>`;
-    })
-    // Lists
-    .replace(/^- (.+)$/gm, '<li style="color:#7A9CC2;font-size:15px;line-height:1.75;margin-bottom:6px;padding-left:8px">$1</li>')
-    .replace(/(<li[^>]*>.*<\/li>\n?)+/g, (match) => `<ul style="list-style:none;margin:16px 0;padding-left:16px;border-left:2px solid rgba(0,196,255,0.2)">${match}</ul>`)
-    // Paragraphs
-    .replace(/^(?!<[hul]|<pre|<tr)(.+)$/gm, '<p style="color:#7A9CC2;font-size:15px;line-height:1.8;margin-bottom:16px">$1</p>')
-    // Clean empty paragraphs
-    .replace(/<p[^>]*><\/p>/g, '');
+function CustomMarkdown({ children }: { children: string }) {
+  return (
+    <Markdown
+      options={{
+        overrides: {
+          h1: {
+            component: "h1",
+            props: {
+              style: { color: "#F0F6FF", fontSize: "1.8rem", fontWeight: 900, margin: "40px 0 16px" }
+            }
+          },
+          h2: {
+            component: "h2",
+            props: {
+              style: { color: "#F0F6FF", fontSize: "1.4rem", fontWeight: 800, margin: "36px 0 14px", letterSpacing: "-0.01em" }
+            }
+          },
+          h3: {
+            component: "h3",
+            props: {
+              style: { color: "#F0F6FF", fontSize: "1.15rem", fontWeight: 700, margin: "28px 0 12px", letterSpacing: "-0.01em" }
+            }
+          },
+          p: {
+            component: "p",
+            props: {
+              style: { color: "#9EBDDF", fontSize: "15px", lineHeight: 1.8, marginBottom: "16px" }
+            }
+          },
+          strong: {
+            component: "strong",
+            props: {
+              style: { color: "#F0F6FF", fontWeight: 700 }
+            }
+          },
+          li: {
+            component: "li",
+            props: {
+              style: { color: "#9EBDDF", fontSize: "15px", lineHeight: 1.75, marginBottom: "6px", paddingLeft: "8px" }
+            }
+          },
+          ul: {
+            component: "ul",
+            props: {
+              style: { listStyle: "none", margin: "16px 0", paddingLeft: "16px", borderLeft: "2px solid rgba(0,196,255,0.2)" }
+            }
+          },
+          pre: {
+            component: "pre",
+            props: {
+              style: { background: "#071A38", border: "1px solid rgba(0,196,255,0.15)", borderRadius: "10px", padding: "20px", overflowX: "auto", margin: "20px 0" }
+            }
+          },
+          code: {
+            component: "code",
+            props: {
+              style: { color: "#00C4FF", fontFamily: "monospace", fontSize: "13px" }
+            }
+          },
+          td: {
+            component: "td",
+            props: {
+              style: { padding: "10px 14px", borderBottom: "1px solid rgba(0,196,255,0.08)", color: "#9EBDDF", fontSize: "14px" }
+            }
+          },
+          table: {
+            component: "table",
+            props: {
+              style: { width: "100%", borderCollapse: "collapse", margin: "24px 0" }
+            }
+          }
+        }
+      }}
+    >
+      {children}
+    </Markdown>
+  );
 }
 
 export default async function BlogPostPage({ params }: Props) {
@@ -172,13 +221,13 @@ export default async function BlogPostPage({ params }: Props) {
         {/* Article Content */}
         <article style={{ maxWidth: "760px", margin: "0 auto", padding: "52px 24px 80px" }}>
           {/* First half */}
-          <div dangerouslySetInnerHTML={{ __html: renderMarkdown(firstHalf) }} />
+          <CustomMarkdown>{firstHalf}</CustomMarkdown>
 
           {/* Mid CTA */}
           <BlogCTA position="middle" />
 
           {/* Second half */}
-          <div dangerouslySetInnerHTML={{ __html: renderMarkdown(secondHalf) }} />
+          <CustomMarkdown>{secondHalf}</CustomMarkdown>
 
           {/* End CTA */}
           <BlogCTA position="end" />
