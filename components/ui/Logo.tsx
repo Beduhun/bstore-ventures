@@ -57,9 +57,8 @@ export default function Logo({ light = false, height = 40, className = "" }: Log
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 400 140"
       height={height}
-      width="auto"
       className={className}
-      style={{ display: "inline-block", verticalAlign: "middle", overflow: "visible" }}
+      style={{ display: "inline-block", verticalAlign: "middle", overflow: "visible", width: "auto" }}
     >
       <defs>
         {/* Front Face Gradient */}
