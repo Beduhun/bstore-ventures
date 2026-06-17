@@ -6,21 +6,49 @@ interface LogoProps {
   className?: string;
 }
 
+// Helper component to render the B shape layers for the 3D effect
+const BLogoIcon = ({ fill, stroke }: { fill: string; stroke: string }) => {
+  // Left Column Bar (slanted parallelogram)
+  const logoPathLeft = "M24 20 L40 20 L16 120 L0 120 Z";
+  
+  // Right Loops of the B (slanted and cut, parallel to the left bar)
+  const logoPathRight = `
+    M50 20 L86 20 Q106 20 102 45 Q98 70 82 70 L40 70 L92 70 Q112 70 107 95 Q102 120 74 120 L30 120 Z
+    M58 32 L74 32 Q86 32 84 45 Q82 58 68 58 L52 58 Q54 45 58 32 Z
+    M50 82 L76 82 Q88 82 86 95 Q84 108 68 108 L44 108 Q46 95 50 82 Z
+  `;
+
+  // Integrated circuit lines coming off the bottom loop (overlapping the B)
+  const line1 = "M80 102 L88 102 L96 94 L115 94";
+  const line2 = "M70 111 L85 111 L93 103 L115 103";
+  const line3 = "M65 120 L115 120";
+
+  return (
+    <g fillRule="evenodd">
+      {/* Left Column Bar */}
+      <path d={logoPathLeft} fill={fill} />
+      {/* Loops */}
+      <path d={logoPathRight} fill={fill} />
+      {/* Integrated circuit lines */}
+      <path d={line1} fill="none" stroke={stroke} strokeWidth="4.5" strokeLinecap="round" />
+      <path d={line2} fill="none" stroke={stroke} strokeWidth="4.5" strokeLinecap="round" />
+      <path d={line3} fill="none" stroke={stroke} strokeWidth="4.5" strokeLinecap="round" />
+      {/* Integrated circle nodes */}
+      <circle cx="115" cy="94" r="5" fill={fill} />
+      <circle cx="115" cy="103" r="5" fill={fill} />
+      <circle cx="115" cy="120" r="5" fill={fill} />
+    </g>
+  );
+};
+
 export default function Logo({ light = false, height = 40, className = "" }: LogoProps) {
   // B'Store text color is white on dark background (light = true), navy on light background (light = false)
   const textColor = light ? "#FFFFFF" : "#0B2545";
   const venturesColor = "#00C4FF";
-  
-  // Outer B shape path: M20 20 L20 120 L70 120 Q100 120 100 95 Q100 78 82 72 Q98 66 98 50 Q98 20 68 20 Z
-  // Upper hole (cutout): M38 35 L65 35 Q82 35 82 50 Q82 65 65 65 L38 65 Z (drawn in reverse direction or using evenodd)
-  // Lower hole (cutout): M38 72 L68 72 Q84 72 84 95 Q84 108 68 108 L38 108 Z
-  // Prime symbol (apostrophe): M106 22 L116 20 L111 38 Q110 44 105 48 L101 44 Q104 41 105 38 Z
-  const logoPath = `
-    M20 20 L20 120 L70 120 Q100 120 100 95 Q100 78 82 72 Q98 66 98 50 Q98 20 68 20 Z 
-    M38 35 L65 35 Q82 35 82 50 Q82 65 65 65 L38 65 Z 
-    M38 72 L68 72 Q84 72 84 95 Q84 108 68 108 L38 108 Z 
-    M106 22 L116 20 L111 38 Q110 44 105 48 L101 44 Q104 41 105 38 Z
-  `;
+
+  const line1 = "M80 102 L88 102 L96 94 L115 94";
+  const line2 = "M70 111 L85 111 L93 103 L115 103";
+  const line3 = "M65 120 L115 120";
 
   return (
     <svg
@@ -97,39 +125,52 @@ export default function Logo({ light = false, height = 40, className = "" }: Log
 
       {/* --- 3D EXTRUSION LAYERS --- */}
       {/* Drop Shadow Base */}
-      <path d={logoPath} fillRule="evenodd" fill="rgba(7, 26, 56, 0.4)" transform="translate(6, 6)" />
+      <g transform="translate(6, 6)">
+        <BLogoIcon fill="rgba(7, 26, 56, 0.4)" stroke="rgba(7, 26, 56, 0.4)" />
+      </g>
       {/* Side wall extrusions (layering to create a solid 3D bevel block) */}
-      <path d={logoPath} fillRule="evenodd" fill="#031A36" transform="translate(4, 4)" />
-      <path d={logoPath} fillRule="evenodd" fill="#005A7F" transform="translate(3, 3)" />
-      <path d={logoPath} fillRule="evenodd" fill="#0080B3" transform="translate(2, 2)" />
-      <path d={logoPath} fillRule="evenodd" fill="#00B3DA" transform="translate(1, 1)" />
+      <g transform="translate(4, 4)">
+        <BLogoIcon fill="#031A36" stroke="#031A36" />
+      </g>
+      <g transform="translate(3, 3)">
+        <BLogoIcon fill="#005A7F" stroke="#005A7F" />
+      </g>
+      <g transform="translate(2, 2)">
+        <BLogoIcon fill="#0080B3" stroke="#0080B3" />
+      </g>
+      <g transform="translate(1, 1)">
+        <BLogoIcon fill="#00B3DA" stroke="#00B3DA" />
+      </g>
 
       {/* Front Face of the 3D B' */}
-      <path d={logoPath} fillRule="evenodd" fill="url(#logoBGrad)" />
+      <BLogoIcon fill="url(#logoBGrad)" stroke="url(#logoBGrad)" />
 
-      {/* --- ANIMATED CIRCUITS --- */}
+      {/* --- ANIMATED CODES/ENERGY BALLS ON B CIRCUITS --- */}
+      {/* We overlay white glowing paths on top of the front face's lines */}
+      <g fill="none" stroke="#FFFFFF" strokeWidth="2.2" strokeLinecap="round" filter="url(#circuitGlow)">
+        <path d={line1} className="pulse-path-fast" />
+        <path d={line2} className="pulse-path-1" />
+        <path d={line3} className="pulse-path-2" />
+      </g>
+
+      {/* --- OTHER DYNAMIC CIRCUITS AROUND THE LOGO --- */}
       {/* Trace 1: Bottom connector (Traditional style) */}
-      <path d="M 100 95 L 100 108 L 142 108" stroke="#00C4FF" strokeWidth="2.5" opacity="0.25" fill="none" />
-      <path d="M 100 95 L 100 108 L 142 108" stroke="#FFFFFF" strokeWidth="2.5" fill="none" className="pulse-path-1" filter="url(#circuitGlow)" strokeLinecap="round" />
-
-      {/* Trace 2: Bottom branch going down */}
       <path d="M 120 108 L 120 125 L 138 125" stroke="#00C4FF" strokeWidth="2" opacity="0.25" fill="none" />
       <path d="M 120 108 L 120 125 L 138 125" stroke="#00C4FF" strokeWidth="2" fill="none" className="pulse-path-2" strokeLinecap="round" />
 
-      {/* Trace 3: Top-right branch */}
+      {/* Trace 2: Top-right branch */}
       <path d="M 90 25 L 132 25 L 142 35" stroke="#00C4FF" strokeWidth="2.5" opacity="0.25" fill="none" />
       <path d="M 90 25 L 132 25 L 142 35" stroke="#FFFFFF" strokeWidth="2.5" fill="none" className="pulse-path-fast" filter="url(#circuitGlow)" strokeLinecap="round" />
 
-      {/* Trace 4: Middle branch */}
+      {/* Trace 3: Middle branch */}
       <path d="M 82 72 L 122 72 L 130 80" stroke="#00C4FF" strokeWidth="2" opacity="0.25" fill="none" />
       <path d="M 82 72 L 122 72 L 130 80" stroke="#00C4FF" strokeWidth="2" fill="none" className="pulse-path-1" strokeLinecap="round" />
 
-      {/* Trace 5: Left side back-branch */}
+      {/* Trace 4: Left side back-branch */}
       <path d="M 20 45 L 8 45 L 8 75 L 18 75" stroke="#00C4FF" strokeWidth="1.5" opacity="0.2" fill="none" />
       <path d="M 20 45 L 8 45 L 8 75 L 18 75" stroke="#00C4FF" strokeWidth="1.5" fill="none" className="pulse-path-2" strokeLinecap="round" />
 
-      {/* Circuit Nodes (Dots) with blinking and breathing animations */}
-      <circle cx="142" cy="108" r="4" fill="#00C4FF" className="node-dot" />
+      {/* Circle Nodes (Dots) with blinking and breathing animations */}
       <circle cx="120" cy="108" r="2.5" fill="#00C4FF" opacity="0.7" />
       <circle cx="138" cy="125" r="4.5" fill="#00C4FF" className="node-dot-delayed" />
       <circle cx="142" cy="35" r="4.5" fill="#00C4FF" className="node-dot" />
