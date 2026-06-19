@@ -16,12 +16,11 @@ const CATEGORY_TABS = [
   { slug: "venda-sem-estoque", label: "Venda Sem Estoque" },
   { slug: "escalar", label: "Escalar E-commerce" },
 ];
-
 const categoryColors: Record<string, string> = {
-  "loja-virtual": "#00C4FF",
-  marketplaces: "#22D3A5",
-  "venda-sem-estoque": "#F59E0B",
-  escalar: "#A78BFA",
+  "loja-virtual": "#0070B8",
+  marketplaces: "#10B981",
+  "venda-sem-estoque": "#D97706",
+  escalar: "#8B5CF6",
 };
 
 const categoryLabels: Record<string, string> = {
@@ -47,7 +46,7 @@ export default function BlogList({ posts }: BlogListProps) {
           gap: "10px",
           flexWrap: "wrap",
           justifyContent: "center",
-          borderBottom: "1px solid rgba(255, 255, 255, 0.08)",
+          borderBottom: "1px solid rgba(11, 37, 69, 0.08)",
           paddingBottom: "20px",
         }}
       >
@@ -58,9 +57,9 @@ export default function BlogList({ posts }: BlogListProps) {
               key={tab.slug}
               onClick={() => setActiveCategory(tab.slug)}
               style={{
-                background: isActive ? "#00C4FF" : "rgba(18, 45, 91, 0.4)",
-                border: isActive ? "1px solid #00C4FF" : "1px solid rgba(0, 196, 255, 0.15)",
-                color: isActive ? "#0B2545" : "#9EBDDF",
+                background: isActive ? "#0070B8" : "#F7FAFC",
+                border: isActive ? "1px solid #0070B8" : "1px solid rgba(11, 37, 69, 0.12)",
+                color: isActive ? "#FFFFFF" : "#1E3A5F",
                 padding: "8px 18px",
                 borderRadius: "100px",
                 fontSize: "14px",
@@ -70,14 +69,14 @@ export default function BlogList({ posts }: BlogListProps) {
               }}
               onMouseEnter={(e) => {
                 if (!isActive) {
-                  e.currentTarget.style.color = "#00C4FF";
-                  e.currentTarget.style.background = "rgba(0, 196, 255, 0.05)";
+                  e.currentTarget.style.color = "#0070B8";
+                  e.currentTarget.style.background = "rgba(0, 112, 184, 0.05)";
                 }
               }}
               onMouseLeave={(e) => {
                 if (!isActive) {
-                  e.currentTarget.style.color = "#9EBDDF";
-                  e.currentTarget.style.background = "rgba(18, 45, 91, 0.4)";
+                  e.currentTarget.style.color = "#1E3A5F";
+                  e.currentTarget.style.background = "#F7FAFC";
                 }
               }}
             >
@@ -89,7 +88,7 @@ export default function BlogList({ posts }: BlogListProps) {
 
       {/* Grid of posts */}
       {filteredPosts.length === 0 ? (
-        <p style={{ color: "#7A9CC2", textAlign: "center", fontSize: "16px", padding: "40px 0" }}>
+        <p style={{ color: "#4A6B82", textAlign: "center", fontSize: "16px", padding: "40px 0" }}>
           Nenhum artigo encontrado nesta categoria.
         </p>
       ) : (
@@ -101,7 +100,7 @@ export default function BlogList({ posts }: BlogListProps) {
           }}
         >
           {filteredPosts.map((post) => {
-            const color = categoryColors[post.category] ?? "#00C4FF";
+            const color = categoryColors[post.category] ?? "#0070B8";
             const label = categoryLabels[post.category] ?? post.category;
             return (
               <Link
@@ -119,8 +118,8 @@ export default function BlogList({ posts }: BlogListProps) {
                     display: "flex",
                     flexDirection: "column",
                     gap: "14px",
-                    background: "rgba(18, 45, 91, 0.3)",
-                    border: "1px solid rgba(0, 196, 255, 0.1)",
+                    background: "#FFFFFF",
+                    border: "1px solid rgba(11, 37, 69, 0.08)",
                     transition: "all 0.3s ease",
                   }}
                 >
@@ -128,8 +127,8 @@ export default function BlogList({ posts }: BlogListProps) {
                   <span
                     style={{
                       display: "inline-block",
-                      background: `${color}18`,
-                      border: `1px solid ${color}40`,
+                      background: `${color}10`,
+                      border: `1px solid ${color}30`,
                       color,
                       padding: "4px 12px",
                       borderRadius: "100px",
@@ -145,7 +144,7 @@ export default function BlogList({ posts }: BlogListProps) {
                   {/* Title */}
                   <h2
                     style={{
-                      color: "#F0F6FF",
+                      color: "#0B2545",
                       fontWeight: 800,
                       fontSize: "1.1rem",
                       lineHeight: 1.4,
@@ -158,7 +157,7 @@ export default function BlogList({ posts }: BlogListProps) {
                   {/* Description */}
                   <p
                     style={{
-                      color: "#9EBDDF",
+                      color: "#1E3A5F",
                       fontSize: "13.5px",
                       lineHeight: 1.65,
                       display: "-webkit-box",
@@ -177,14 +176,14 @@ export default function BlogList({ posts }: BlogListProps) {
                       justifyContent: "space-between",
                       alignItems: "center",
                       paddingTop: "12px",
-                      borderTop: "1px solid rgba(0, 196, 255, 0.08)",
+                      borderTop: "1px solid rgba(11, 37, 69, 0.06)",
                       marginTop: "4px",
                     }}
                   >
                     <div style={{ display: "flex", gap: "14px" }}>
                       <span
                         style={{
-                          color: "#7A9CC2",
+                          color: "#4A6B82",
                           fontSize: "12px",
                           display: "flex",
                           alignItems: "center",
@@ -199,7 +198,7 @@ export default function BlogList({ posts }: BlogListProps) {
                       </span>
                       <span
                         style={{
-                          color: "#7A9CC2",
+                          color: "#4A6B82",
                           fontSize: "12px",
                           display: "flex",
                           alignItems: "center",
@@ -209,7 +208,7 @@ export default function BlogList({ posts }: BlogListProps) {
                         <Clock size={12} /> {post.readTime}
                       </span>
                     </div>
-                    <ArrowRight size={16} style={{ color: "#00C4FF" }} />
+                    <ArrowRight size={16} style={{ color: "#0070B8" }} />
                   </div>
                 </div>
               </Link>

@@ -56,8 +56,8 @@ export default function Navbar() {
       {/* Desktop Nav */}
       <div style={{ display: "flex", alignItems: "center", gap: "32px", position: "relative" }} className="hidden-mobile">
         <Link
-          href={`${basePath}/#quiz`}
-          id="nav-link-diagnostico"
+          href="/"
+          id="nav-link-inicio"
           style={{
             color: scrolled ? "#0B2545" : "#9EBDDF",
             textDecoration: "none",
@@ -68,7 +68,7 @@ export default function Navbar() {
           onMouseEnter={(e) => ((e.target as HTMLAnchorElement).style.color = scrolled ? "#0070B8" : "#F0F6FF")}
           onMouseLeave={(e) => ((e.target as HTMLAnchorElement).style.color = scrolled ? "#0B2545" : "#9EBDDF")}
         >
-          Diagnóstico
+          Início
         </Link>
 
         {/* Dropdown Link (Cursos) */}
@@ -180,21 +180,7 @@ export default function Navbar() {
           Blog
         </Link>
 
-        <Link
-          href={`${basePath}/#categorias`}
-          id="nav-link-categorias"
-          style={{
-            color: scrolled ? "#0B2545" : "#9EBDDF",
-            textDecoration: "none",
-            fontSize: "15px",
-            fontWeight: scrolled ? 600 : 500,
-            transition: "color 0.2s",
-          }}
-          onMouseEnter={(e) => ((e.target as HTMLAnchorElement).style.color = scrolled ? "#0070B8" : "#F0F6FF")}
-          onMouseLeave={(e) => ((e.target as HTMLAnchorElement).style.color = scrolled ? "#0B2545" : "#9EBDDF")}
-        >
-          Categorias
-        </Link>
+
 
         <a
           href={`${basePath}/#quiz`}
@@ -257,7 +243,7 @@ export default function Navbar() {
             }}
           >
             <Link
-              href={`${basePath}/#quiz`}
+              href="/"
               onClick={() => setMenuOpen(false)}
               style={{
                 color: scrolled ? "#0B2545" : "#F0F6FF",
@@ -266,7 +252,7 @@ export default function Navbar() {
                 fontWeight: 600,
               }}
             >
-              Diagnóstico
+              Início
             </Link>
 
             {/* Mobile Accordion (Cursos) */}
@@ -348,18 +334,7 @@ export default function Navbar() {
               Blog
             </Link>
 
-            <Link
-              href={`${basePath}/#categorias`}
-              onClick={() => setMenuOpen(false)}
-              style={{
-                color: scrolled ? "#0B2545" : "#F0F6FF",
-                textDecoration: "none",
-                fontSize: "17px",
-                fontWeight: 600,
-              }}
-            >
-              Categorias
-            </Link>
+
 
             <a
               href={`${basePath}/#quiz`}

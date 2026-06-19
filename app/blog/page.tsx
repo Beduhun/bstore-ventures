@@ -23,39 +23,39 @@ export default function BlogPage() {
   return (
     <>
       <Navbar />
-      <main style={{ background: "#0B2545", minHeight: "100vh", paddingTop: "72px" }}>
+      <main style={{ background: "#FFFFFF", minHeight: "100vh", paddingTop: "72px" }}>
         {/* Header */}
         <div style={{
-          background: "linear-gradient(180deg, #071A38 0%, #0B2545 100%)",
+          background: "linear-gradient(180deg, #FFFFFF 0%, #F7FAFC 100%)",
           padding: "80px 24px 60px",
-          borderBottom: "1px solid rgba(0,196,255,0.08)",
+          borderBottom: "1px solid rgba(11, 37, 69, 0.08)",
           textAlign: "center",
         }}>
           <span style={{
             display: "inline-block",
-            color: "#00C4FF",
+            color: "#0070B8",
             fontSize: "13px",
             fontWeight: 700,
             letterSpacing: "0.1em",
             textTransform: "uppercase",
             marginBottom: "16px",
-            background: "rgba(0,196,255,0.08)",
+            background: "rgba(0,112,184,0.06)",
             padding: "6px 18px",
             borderRadius: "100px",
-            border: "1px solid rgba(0,196,255,0.2)",
+            border: "1px solid rgba(0,112,184,0.15)",
           }}>
             Blog & Conteúdo
           </span>
           <h1 style={{
             fontSize: "clamp(2rem, 5vw, 3.2rem)",
             fontWeight: 900,
-            color: "#F0F6FF",
+            color: "#0B2545",
             letterSpacing: "-0.02em",
             marginBottom: "16px",
           }}>
-            Aprenda com quem já <span style={{ color: "#00C4FF" }}>fez</span>
+            Aprenda com quem já <span style={{ color: "#0070B8" }}>fez</span>
           </h1>
-          <p style={{ color: "#7A9CC2", fontSize: "1.1rem", maxWidth: "520px", margin: "0 auto" }}>
+          <p style={{ color: "#1E3A5F", fontSize: "1.1rem", maxWidth: "520px", margin: "0 auto" }}>
             Guias práticos com dados reais, notícias e minicursos para você acelerar suas vendas no digital.
           </p>
         </div>
@@ -68,15 +68,15 @@ export default function BlogPage() {
           <div style={{
             marginTop: "64px",
             textAlign: "center",
-            background: "rgba(0,196,255,0.05)",
-            border: "1px solid rgba(0,196,255,0.15)",
+            background: "#F7FAFC",
+            border: "1px solid rgba(11, 37, 69, 0.08)",
             borderRadius: "20px",
             padding: "48px 24px",
           }}>
-            <h3 style={{ color: "#F0F6FF", fontWeight: 800, fontSize: "1.5rem", marginBottom: "12px" }}>
+            <h3 style={{ color: "#0B2545", fontWeight: 800, fontSize: "1.5rem", marginBottom: "12px" }}>
               Quer um plano personalizado? 🚀
             </h3>
-            <p style={{ color: "#7A9CC2", fontSize: "15px", marginBottom: "28px" }}>
+            <p style={{ color: "#1E3A5F", fontSize: "15px", marginBottom: "28px" }}>
               Faça nosso diagnóstico gratuito e descubra qual estratégia de e-commerce é ideal para você.
             </p>
             <Link

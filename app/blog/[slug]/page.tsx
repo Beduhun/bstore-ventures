@@ -56,61 +56,61 @@ function CustomMarkdown({ children }: { children: string }) {
           h1: {
             component: "h1",
             props: {
-              style: { color: "#F0F6FF", fontSize: "1.8rem", fontWeight: 900, margin: "40px 0 16px" }
+              style: { color: "#0B2545", fontSize: "1.8rem", fontWeight: 900, margin: "40px 0 16px" }
             }
           },
           h2: {
             component: "h2",
             props: {
-              style: { color: "#F0F6FF", fontSize: "1.4rem", fontWeight: 800, margin: "36px 0 14px", letterSpacing: "-0.01em" }
+              style: { color: "#0B2545", fontSize: "1.4rem", fontWeight: 800, margin: "36px 0 14px", letterSpacing: "-0.01em" }
             }
           },
           h3: {
             component: "h3",
             props: {
-              style: { color: "#F0F6FF", fontSize: "1.15rem", fontWeight: 700, margin: "28px 0 12px", letterSpacing: "-0.01em" }
+              style: { color: "#0B2545", fontSize: "1.15rem", fontWeight: 700, margin: "28px 0 12px", letterSpacing: "-0.01em" }
             }
           },
           p: {
             component: "p",
             props: {
-              style: { color: "#9EBDDF", fontSize: "15px", lineHeight: 1.8, marginBottom: "16px" }
+              style: { color: "#1E3A5F", fontSize: "15px", lineHeight: 1.8, marginBottom: "16px" }
             }
           },
           strong: {
             component: "strong",
             props: {
-              style: { color: "#F0F6FF", fontWeight: 700 }
+              style: { color: "#0B2545", fontWeight: 700 }
             }
           },
           li: {
             component: "li",
             props: {
-              style: { color: "#9EBDDF", fontSize: "15px", lineHeight: 1.75, marginBottom: "6px", paddingLeft: "8px" }
+              style: { color: "#1E3A5F", fontSize: "15px", lineHeight: 1.75, marginBottom: "6px", paddingLeft: "8px" }
             }
           },
           ul: {
             component: "ul",
             props: {
-              style: { listStyle: "none", margin: "16px 0", paddingLeft: "16px", borderLeft: "2px solid rgba(0,196,255,0.2)" }
+              style: { listStyle: "none", margin: "16px 0", paddingLeft: "16px", borderLeft: "2px solid rgba(0, 112, 184, 0.25)" }
             }
           },
           pre: {
             component: "pre",
             props: {
-              style: { background: "#071A38", border: "1px solid rgba(0,196,255,0.15)", borderRadius: "10px", padding: "20px", overflowX: "auto", margin: "20px 0" }
+              style: { background: "#F7FAFC", border: "1px solid rgba(11, 37, 69, 0.08)", borderRadius: "10px", padding: "20px", overflowX: "auto", margin: "20px 0" }
             }
           },
           code: {
             component: "code",
             props: {
-              style: { color: "#00C4FF", fontFamily: "monospace", fontSize: "13px" }
+              style: { color: "#0070B8", fontFamily: "monospace", fontSize: "13px" }
             }
           },
           td: {
             component: "td",
             props: {
-              style: { padding: "10px 14px", borderBottom: "1px solid rgba(0,196,255,0.08)", color: "#9EBDDF", fontSize: "14px" }
+              style: { padding: "10px 14px", borderBottom: "1px solid rgba(11, 37, 69, 0.08)", color: "#1E3A5F", fontSize: "14px" }
             }
           },
           table: {
@@ -156,12 +156,12 @@ export default async function BlogPostPage({ params }: Props) {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <Navbar />
-      <main style={{ background: "#0B2545", minHeight: "100vh", paddingTop: "72px" }}>
+      <main style={{ background: "#FFFFFF", minHeight: "100vh", paddingTop: "72px" }}>
         {/* Hero */}
         <div style={{
-          background: "linear-gradient(180deg, #071A38 0%, #0B2545 100%)",
+          background: "linear-gradient(180deg, #FFFFFF 0%, #F7FAFC 100%)",
           padding: "60px 24px 48px",
-          borderBottom: "1px solid rgba(0,196,255,0.08)",
+          borderBottom: "1px solid rgba(11, 37, 69, 0.08)",
         }}>
           <div style={{ maxWidth: "760px", margin: "0 auto" }}>
             {/* Breadcrumb */}
@@ -172,10 +172,10 @@ export default async function BlogPostPage({ params }: Props) {
                 { href: `/blog`, label: categoryLabels[post.category] ?? post.category },
               ].map((crumb, i, arr) => (
                 <span key={crumb.href} style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-                  <Link href={crumb.href} style={{ color: i === arr.length - 1 ? "#7A9CC2" : "#00C4FF", fontSize: "13px", textDecoration: "none", fontWeight: 500 }}>
+                  <Link href={crumb.href} style={{ color: i === arr.length - 1 ? "#4A6B82" : "#0070B8", fontSize: "13px", textDecoration: "none", fontWeight: 500 }}>
                     {crumb.label}
                   </Link>
-                  {i < arr.length - 1 && <span style={{ color: "#1A3A72", fontSize: "13px" }}>/</span>}
+                  {i < arr.length - 1 && <span style={{ color: "rgba(11, 37, 69, 0.15)", fontSize: "13px" }}>/</span>}
                 </span>
               ))}
             </nav>
@@ -183,9 +183,9 @@ export default async function BlogPostPage({ params }: Props) {
             {/* Category */}
             <span style={{
               display: "inline-block",
-              background: "rgba(0,196,255,0.1)",
-              border: "1px solid rgba(0,196,255,0.25)",
-              color: "#00C4FF",
+              background: "rgba(0,112,184,0.06)",
+              border: "1px solid rgba(0,112,184,0.15)",
+              color: "#0070B8",
               padding: "4px 14px",
               borderRadius: "100px",
               fontSize: "12px",
@@ -199,7 +199,7 @@ export default async function BlogPostPage({ params }: Props) {
             <h1 style={{
               fontSize: "clamp(1.6rem, 4vw, 2.4rem)",
               fontWeight: 900,
-              color: "#F0F6FF",
+              color: "#0B2545",
               lineHeight: 1.25,
               letterSpacing: "-0.02em",
               marginBottom: "16px",
@@ -207,11 +207,11 @@ export default async function BlogPostPage({ params }: Props) {
               {post.title}
             </h1>
 
-            <p style={{ color: "#7A9CC2", fontSize: "1.05rem", lineHeight: 1.7, marginBottom: "24px" }}>
+            <p style={{ color: "#1E3A5F", fontSize: "1.05rem", lineHeight: 1.7, marginBottom: "24px" }}>
               {post.description}
             </p>
 
-            <div style={{ display: "flex", gap: "20px", color: "#7A9CC2", fontSize: "13px", flexWrap: "wrap" }}>
+            <div style={{ display: "flex", gap: "20px", color: "#4A6B82", fontSize: "13px", flexWrap: "wrap" }}>
               <span>📅 {new Date(post.date).toLocaleDateString("pt-BR", { day: "2-digit", month: "long", year: "numeric" })}</span>
               <span>⏱️ {post.readTime} de leitura</span>
             </div>
@@ -233,12 +233,12 @@ export default async function BlogPostPage({ params }: Props) {
           <BlogCTA position="end" category={post.category} />
 
           {/* Back to blog */}
-          <div style={{ marginTop: "40px", paddingTop: "32px", borderTop: "1px solid rgba(0,196,255,0.08)" }}>
+          <div style={{ marginTop: "40px", paddingTop: "32px", borderTop: "1px solid rgba(11, 37, 69, 0.08)" }}>
             <Link
               href="/blog"
               id="blog-post-back"
               style={{
-                color: "#00C4FF",
+                color: "#0070B8",
                 fontSize: "14px",
                 fontWeight: 700,
                 textDecoration: "none",

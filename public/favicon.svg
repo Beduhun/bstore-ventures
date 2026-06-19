@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 140" fill="none">
+  <!-- White Background Container with rounded corners -->
+  <rect width="140" height="140" rx="32" fill="#FFFFFF" />
+  
+  <defs>
+    <linearGradient id="favBGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00C4FF" />
+      <stop offset="100%" stop-color="#0B2545" />
+    </linearGradient>
+  </defs>
+
+  <!-- Scaled and centered B icon with circuit lines -->
+  <g transform="translate(10, 10) scale(0.9)">
+    <!-- Left Column Bar -->
+    <path d="M20 20 L50 28 L36 112 L3 120 Z" fill="url(#favBGrad)" />
+    
+    <!-- Loops -->
+    <path d="
+      M 55 28 L 85 20 L 86 20 Q 106 20 102 45 Q 98 70 82 70 L 42 70 L 68 58 Q 82 58 84 45 Q 86 32 74 32 L 58 32 L 50 31 Z
+      M 42 70 L 92 70 Q 112 70 107 95 Q 102 120 74 120 L 41 112 L 44 108 L 68 108 Q 84 108 86 95 Q 88 82 76 82 L 50 82 Z
+    " fill="url(#favBGrad)" />
+    
+    <!-- Integrated circuit lines -->
+    <path d="M80 102 L88 102 L96 94 L115 94" fill="none" stroke="#00C4FF" stroke-width="4.5" stroke-linecap="round" />
+    <path d="M70 111 L85 111 L93 103 L115 103" fill="none" stroke="#00C4FF" stroke-width="4.5" stroke-linecap="round" />
+    <path d="M65 120 L115 120" fill="none" stroke="#00C4FF" stroke-width="4.5" stroke-linecap="round" />
+    
+    <!-- Circle nodes -->
+    <circle cx="115" cy="94" r="5.5" fill="#00C4FF" />
+    <circle cx="115" cy="103" r="5.5" fill="#00C4FF" />
+    <circle cx="115" cy="120" r="5.5" fill="#00C4FF" />
+
+    <!-- Top circuit branch -->
+    <path d="M 90 25 L 122 25 L 129 32" fill="none" stroke="#00C4FF" stroke-width="3" stroke-linecap="round" />
+    <circle cx="129" cy="32" r="4.5" fill="#00C4FF" />
+  </g>
+</svg>

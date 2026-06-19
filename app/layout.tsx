@@ -52,7 +52,7 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" className={inter.variable} data-scroll-behavior="smooth">
       <head>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <meta name="theme-color" content="#0B2545" />
       </head>
       <body className={inter.className}>
