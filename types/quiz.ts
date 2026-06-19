@@ -1,3 +1,5 @@
+import { Course } from "@/lib/courses";
+
 export type StepId = 1 | 2 | 3 | 4 | 5 | 6 | 7;
 
 export type ResultProfile =
@@ -10,10 +12,18 @@ export type ResultProfile =
   | "INICIANTE_SEM_CAPITAL"
   | "PRECISA_ORIENTACAO";
 
+export interface AffiliateRecommendation {
+  label: string;
+  href: string;
+  icon: string;
+  badge?: string;
+}
+
 export interface QuizOption {
   id: string;
   label: string;
-  weight: Partial<Record<ResultProfile, number>>;
+  // Weight maps course ID to scoring points
+  weight: Record<string, number>;
 }
 
 export interface QuizQuestion {
@@ -27,16 +37,10 @@ export interface QuizAnswers {
   [step: number]: string;
 }
 
-export interface AffiliateRecommendation {
-  label: string;
-  href: string;
-  icon: string;
-  badge?: string;
-}
-
 export interface QuizResult {
-  profile: ResultProfile;
+  profile?: string;
   headline: string;
   diagnosis: string;
-  recommendations: AffiliateRecommendation[];
+  recommendedCourse: Course;
+  secondaryCourses: Course[];
 }

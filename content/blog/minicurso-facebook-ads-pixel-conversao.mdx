@@ -1,0 +1,52 @@
+---
+title: "Minicurso: Configurando Pixel e API de Conversão no Meta Ads"
+description: "Aprenda a instalar o rastreamento do Facebook e a API de conversão para coletar dados de vendas com precisão em sua loja virtual."
+date: "2026-06-19"
+category: "escalar"
+readTime: "5 min"
+---
+
+## A Importância do Rastreamento Preciso
+
+Se você anuncia no Facebook ou Instagram, o **Meta Pixel** é a ferramenta que diz ao gerenciador de anúncios quais campanhas geraram compras e quais públicos estão engajados. No entanto, com as atualizações de privacidade de sistemas operacionais móveis (como o iOS da Apple), rastrear eventos apenas pelo navegador usando o Pixel tradicional perdeu cerca de 30% da precisão.
+
+Para contornar esse problema, a instalação da **API de Conversões (CAPI)** — que envia dados do servidor do site direto para o servidor do Facebook — tornou-se obrigatória. Neste minicurso, ensinamos o setup técnico de integração.
+
+---
+
+## Passo 1: Criando o Pixel e a API no Gerenciador de Negócios
+
+1. Acesse o **Gerenciador de Eventos** do Meta Ads Business.
+2. Clique no botão de mais verde (**Conectar fontes de dados**) e selecione a opção **Web**.
+3. Insira o nome do seu Pixel (geralmente o nome de sua loja virtual) e clique em **Criar**.
+4. Insira a URL do seu site para verificar as opções de integração automatizada disponíveis.
+
+---
+
+## Passo 2: Gerando o Token de Acesso da API de Conversões
+
+1. Dentro do Gerenciador de Eventos, acesse o seu Pixel recém-criado e clique na aba **Configurações**.
+2. Role a página até encontrar a seção **API de Conversões** e clique no link **Gerar token de acesso**.
+3. Copie o código longo (token) gerado e guarde-o de forma segura em um bloco de notas.
+
+---
+
+## Passo 3: Integrando na Plataforma do E-commerce (Shopify/Nuvemshop)
+
+A maioria das plataformas modernas possui integrações oficiais que facilitam esse processo:
+
+- **Na Shopify**: Instale o canal oficial de vendas **Facebook & Instagram**. Siga as etapas de conexão de sua conta pessoal e página comercial. A integração do Pixel e da CAPI é feita de forma nativa e automática ao selecionar o nível de compartilhamento de dados "Máximo".
+- **Na Nuvemshop**: Vá em **Configurações > Códigos de Rastreamento**. Insira o ID do seu Pixel e cole o Token de Acesso da API de Conversões gerado no passo anterior. A plataforma se encarrega de mapear os eventos automaticamente.
+
+---
+
+## Passo 4: Testando a Integração dos Eventos
+
+1. No Gerenciador de Eventos da Meta, vá na aba **Testar Eventos**.
+2. Insira a URL do seu site e clique em **Abrir Site**.
+3. Faça ações comuns em sua loja virtual: acesse uma página de produto (evento `ViewContent`), adicione um item ao carrinho (`AddToCart`) e simule a inicialização de compra (`InitiateCheckout`).
+4. Verifique no Gerenciador de Eventos se os disparos estão sendo marcados como ativos e duplicados (mostrando fontes "Navegador" e "Servidor"), o que comprova que a API e o Pixel funcionam juntos corretamente.
+
+## Quer dominar tráfego pago avançado e otimização de escala?
+
+Rastrear dados corretos permite que os algoritmos de anúncio otimizem seus custos. Faça nosso diagnóstico de perfil gratuito para descobrir se o seu negócio está pronto para escala e receba indicações dos melhores cursos de tráfego pago.

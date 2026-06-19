@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { QuizAnswers } from "@/types/quiz";
 import { ChevronLeft, Loader2 } from "lucide-react";
+import Link from "next/link";
 
 interface EmailCaptureProps {
   onSubmit: () => void;
@@ -14,6 +15,7 @@ interface EmailCaptureProps {
 export default function EmailCapture({ onSubmit, onBack, answers }: EmailCaptureProps) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [consent, setConsent] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
@@ -23,6 +25,7 @@ export default function EmailCapture({ onSubmit, onBack, answers }: EmailCapture
 
     if (!name.trim()) { setError("Por favor, informe seu nome."); return; }
     if (!email.trim() || !email.includes("@")) { setError("Por favor, informe um e-mail válido."); return; }
+    if (!consent) { setError("Você precisa aceitar a Política de Privacidade para continuar."); return; }
 
     setLoading(true);
     try {
@@ -31,6 +34,7 @@ export default function EmailCapture({ onSubmit, onBack, answers }: EmailCapture
         name: name.trim(),
         email: email.trim().toLowerCase(),
         answers,
+        consent,
         timestamp: new Date().toISOString(),
       };
       const existingLeads = JSON.parse(localStorage.getItem("bstore_leads") || "[]");
@@ -43,6 +47,22 @@ export default function EmailCapture({ onSubmit, onBack, answers }: EmailCapture
       }
       localStorage.setItem("bstore_leads", JSON.stringify(existingLeads));
 
+      // Save lead on Server database (LGPD compliant)
+      try {
+        await fetch("/api/subscribe", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            name: name.trim(),
+            email: email.trim().toLowerCase(),
+            answers,
+            consent,
+          }),
+        });
+      } catch (err) {
+        console.error("[EmailCapture] Server save failed:", err);
+      }
+
       // Try Formspree (optional — configure NEXT_PUBLIC_FORMSPREE_ID in .env.local)
       const formspreeId = process.env.NEXT_PUBLIC_FORMSPREE_ID;
       if (formspreeId) {
@@ -54,6 +74,7 @@ export default function EmailCapture({ onSubmit, onBack, answers }: EmailCapture
               name: lead.name,
               email: lead.email,
               profile: JSON.stringify(answers),
+              consentAccepted: "Sim",
               _subject: `Novo Lead B'Store: ${lead.name}`,
             }),
           });
@@ -167,6 +188,32 @@ export default function EmailCapture({ onSubmit, onBack, answers }: EmailCapture
           />
         </div>
 
+        {/* LGPD Consent Checkbox */}
+        <div style={{ display: "flex", alignItems: "flex-start", gap: "10px", marginTop: "4px" }}>
+          <input
+            id="lgpd-consent"
+            type="checkbox"
+            checked={consent}
+            onChange={(e) => setConsent(e.target.checked)}
+            required
+            style={{
+              marginTop: "4px",
+              cursor: "pointer",
+              accentColor: "#00C4FF",
+              width: "16px",
+              height: "16px",
+              flexShrink: 0,
+            }}
+          />
+          <label htmlFor="lgpd-consent" style={{ color: "#4A6B82", fontSize: "12.5px", lineHeight: 1.5, cursor: "pointer" }}>
+            Declaro que li e aceito a{" "}
+            <Link href="/privacidade" target="_blank" style={{ color: "#0070B8", fontWeight: 700, textDecoration: "underline" }}>
+              Política de Privacidade
+            </Link>{" "}
+            e concordo em receber diagnósticos e novidades da B'Store Ventures. *
+          </label>
+        </div>
+
         {/* Error */}
         {error && (
           <p style={{ color: "#F87171", fontSize: "14px", background: "rgba(248,113,113,0.1)", padding: "10px 14px", borderRadius: "8px", border: "1px solid rgba(248,113,113,0.3)" }}>
@@ -176,7 +223,7 @@ export default function EmailCapture({ onSubmit, onBack, answers }: EmailCapture
 
         {/* Privacy note */}
         <p style={{ color: "#4A6B82", fontSize: "12px", textAlign: "center" }}>
-          🔒 Sem spam. Prometemos enviar apenas conteúdo relevante para o seu perfil.
+          🔒 Seus dados estão seguros e protegidos de acordo com a LGPD.
         </p>
 
         {/* Submit */}

@@ -42,10 +42,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 const categoryLabels: Record<string, string> = {
-  mercado: "Mercado",
+  "loja-virtual": "Loja Virtual",
   marketplaces: "Marketplaces",
-  ecommerce: "E-commerce",
-  estrategia: "Estratégia",
+  "venda-sem-estoque": "Venda Sem Estoque",
+  escalar: "Escalar E-commerce",
 };
 
 function CustomMarkdown({ children }: { children: string }) {
@@ -224,13 +224,13 @@ export default async function BlogPostPage({ params }: Props) {
           <CustomMarkdown>{firstHalf}</CustomMarkdown>
 
           {/* Mid CTA */}
-          <BlogCTA position="middle" />
+          <BlogCTA position="middle" category={post.category} />
 
           {/* Second half */}
           <CustomMarkdown>{secondHalf}</CustomMarkdown>
 
           {/* End CTA */}
-          <BlogCTA position="end" />
+          <BlogCTA position="end" category={post.category} />
 
           {/* Back to blog */}
           <div style={{ marginTop: "40px", paddingTop: "32px", borderTop: "1px solid rgba(0,196,255,0.08)" }}>

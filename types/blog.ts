@@ -3,7 +3,7 @@ export interface BlogPost {
   title: string;
   description: string;
   date: string;
-  category: "mercado" | "marketplaces" | "ecommerce" | "estrategia";
+  category: "loja-virtual" | "marketplaces" | "venda-sem-estoque" | "escalar";
   readTime: string;
   content: string;
 }

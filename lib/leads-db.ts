@@ -10,6 +10,8 @@ export interface Lead {
   profile?: string;
   createdAt: string;
   ip?: string;
+  consent: boolean;
+  emailsSent?: string[];
 }
 
 interface EncryptedData {

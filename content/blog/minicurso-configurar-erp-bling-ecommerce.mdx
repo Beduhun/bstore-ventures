@@ -1,0 +1,53 @@
+---
+title: "Minicurso: Configurando o Bling ERP para Emitir Notas e Sincronizar Estoque"
+description: "Aprenda a cadastrar produtos, emitir notas fiscais automatizadas e sincronizar o estoque de múltiplos canais de venda usando o Bling ERP."
+date: "2026-06-19"
+category: "escalar"
+readTime: "6 min"
+---
+
+## O Desafio da Gestão de E-commerce Multicanal
+
+Se você vende em mais de um canal (ex: Mercado Livre, Shopee e loja virtual própria), gerenciar estoque e notas fiscais de forma manual torna-se inviável conforme o volume de pedidos cresce. Vender o mesmo item duas vezes por falta de atualização de estoque ou atrasar a emissão de notas fiscais gera penalizações e cancelamentos.
+
+A implementação de um sistema de gestão integrado (ERP) como o **Bling** é a solução para centralizar sua operação. Neste minicurso, ensinamos o setup inicial básico.
+
+---
+
+## Passo 1: Cadastro e Configurações Tributárias (NFe)
+
+1. Crie sua conta no Bling e selecione um plano que inclua suporte a emissão de notas fiscais eletrônicas (NFe) e integrações.
+2. Certificado Digital: Instale seu **Certificado Digital A1** (obrigatório para assinar as notas fiscais eletrônicas digitalmente).
+3. Dados Tributários: Cadastre as alíquotas de sua empresa (Simples Nacional ou Lucro Presumido) em **Configurações > Configurações de NFe**, incluindo o código de regime tributário e regras tributárias padrão (CFOP e CSOSN) recomendadas por sua contabilidade.
+
+---
+
+## Passo 2: Integração com Plataformas de E-commerce e Marketplaces
+
+1. No painel do Bling, acesse **Configurações > Integrações > Configurações de Integrações**.
+2. Clique em **Nova Integração** e selecione a plataforma desejada (ex: Mercado Livre, Shopee, Nuvemshop).
+3. Autorize a conexão logando com a conta do seu marketplace e concedendo permissão de acesso ao Bling.
+4. Configure as regras de sincronização automática:
+   - Importação automática de pedidos de venda.
+   - Sincronização de estoque ao atualizar o saldo no Bling.
+
+---
+
+## Passo 3: Cadastro e Mapeamento de Produtos
+
+Para que o ERP controle tudo de forma centralizada, cada produto deve possuir um **código identificador exclusivo (SKU)** idêntico em todas as plataformas:
+1. Cadastre seus produtos no Bling, especificando o SKU, peso, dimensões e dados fiscais de fábrica.
+2. Utilize a ferramenta do Bling para exportar os produtos cadastrados diretamente para a Shopee ou Mercado Livre, ou vincule anúncios existentes combinando os SKUs idênticos.
+
+---
+
+## Passo 4: Fluxo de Expedição e Emissão de Notas
+
+Quando um cliente realiza uma compra em qualquer canal de venda:
+1. O pedido cai automaticamente no painel de **Vendas > Pedidos de Venda** do Bling.
+2. Selecione o pedido e clique em **Gerar Nota Fiscal**.
+3. Envie a nota para validação da SEFAZ. Uma vez autorizada, o Bling atualiza o status do pedido na plataforma e gera a etiqueta de postagem do frete de forma automática, economizando horas de digitação manual de dados.
+
+## Quer dominar a automação e a gestão de processos no e-commerce?
+
+Centralizar a gestão fiscal e logística protege sua operação contra erros humanos e cancelamentos de pedidos. Faça nosso diagnóstico de perfil gratuito e identifique qual curso avançado de gestão e automação de e-commerce é ideal para sua empresa.

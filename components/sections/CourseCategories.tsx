@@ -2,41 +2,8 @@
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-
-const categories = [
-  {
-    icon: "🛒",
-    title: "Marketplaces",
-    description: "Venda onde milhões já compram. Mercado Livre, Shopee, Amazon e mais.",
-    cta: "Ver cursos →",
-    href: "#LINK_MARKETPLACE",
-    id: "cat-marketplace",
-  },
-  {
-    icon: "🌐",
-    title: "Loja Virtual Própria",
-    description: "Construa seu próprio canal de vendas com total controle da marca.",
-    cta: "Ver cursos →",
-    href: "#LINK_LOJA_VIRTUAL",
-    id: "cat-loja-virtual",
-  },
-  {
-    icon: "🔄",
-    title: "Migração Física → Digital",
-    description: "Do balcão para o digital. Reduza custos fixos e escale sem limites.",
-    cta: "Ver cursos →",
-    href: "#LINK_MIGRACAO",
-    id: "cat-migracao",
-  },
-  {
-    icon: "📈",
-    title: "Escalar E-commerce",
-    description: "Já vende online? Aumente seu ROI com tráfego pago e automação.",
-    cta: "Ver cursos →",
-    href: "#LINK_ESCALAR",
-    id: "cat-escalar",
-  },
-];
+import { CATEGORIES } from "@/lib/courses";
+import Link from "next/link";
 
 export default function CourseCategories() {
   const ref = useRef(null);
@@ -103,9 +70,9 @@ export default function CourseCategories() {
             gap: "20px",
           }}
         >
-          {categories.map((cat, i) => (
+          {CATEGORIES.map((cat, i) => (
             <motion.div
-              key={cat.title}
+              key={cat.slug}
               initial={{ opacity: 0, y: 30, filter: "blur(6px)" }}
               animate={inView ? { opacity: 1, y: 0, filter: "blur(0px)" } : {}}
               transition={{ duration: 0.6, delay: 0.1 + i * 0.12, ease: [0.25, 0.46, 0.45, 0.94] }}
@@ -136,10 +103,9 @@ export default function CourseCategories() {
               <p style={{ color: "#1E3A5F", fontSize: "14px", lineHeight: 1.7, flex: 1 }}>
                 {cat.description}
               </p>
-              <motion.a
+              <Link
                 href={cat.href}
                 id={cat.id}
-                whileHover={{ x: 4 }}
                 style={{
                   color: "#0070B8",
                   fontWeight: 700,
@@ -151,8 +117,8 @@ export default function CourseCategories() {
                   transition: "gap 0.3s ease",
                 }}
               >
-                {cat.cta}
-              </motion.a>
+                Ver cursos disponíveis →
+              </Link>
             </motion.div>
           ))}
         </div>

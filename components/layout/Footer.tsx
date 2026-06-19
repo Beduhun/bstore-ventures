@@ -31,14 +31,13 @@ const footerLinks = {
     { href: "/#categorias", label: "Categorias" },
     { href: "/blog", label: "Blog" },
   ],
-  Recursos: [
-    { href: "/blog/ecommerce-brasil-crescimento", label: "E-commerce Brasil" },
-    { href: "/blog/como-sair-da-loja-fisica-para-o-digital", label: "Migração Digital" },
-    { href: "/blog/vender-mercado-livre-iniciante", label: "Mercado Livre" },
+  Legal: [
+    { href: "/privacidade", label: "Privacidade" },
+    { href: "/termos", label: "Termos de Uso" },
+    { href: "mailto:bstore.ventures@gmail.com?subject=Solicitação de Exclusão de Dados (LGPD)", label: "Excluir Dados (LGPD)" },
   ],
   Contato: [
     { href: "mailto:bstore.ventures@gmail.com", label: "bstore.ventures@gmail.com" },
-    { href: "/#quiz", label: "Suporte" },
   ],
 };
 

@@ -2,49 +2,16 @@
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-
-const featuredCourses = [
-  {
-    title: "Mercado Livre do Zero",
-    description: "Do cadastro à primeira venda em 7 dias. O maior marketplace do Brasil ao seu alcance.",
-    tag: "Mais Popular",
-    tagColor: "#0070B8",
-    href: "#LINK_AFILIADO_ML",
-    icon: "🛍️",
-    id: "course-ml",
-  },
-  {
-    title: "E-commerce Completo",
-    description: "Crie sua loja virtual do zero e construa uma marca com autoridade.",
-    tag: "Recomendado",
-    tagColor: "#10B981",
-    href: "#LINK_AFILIADO_ECOMMERCE",
-    icon: "🌐",
-    id: "course-ecommerce",
-  },
-  {
-    title: "Amazon FBA Brasil",
-    description: "Venda em dólar morando no Brasil. Faturamento em moeda forte.",
-    tag: "Alto Potencial",
-    tagColor: "#D97706",
-    href: "#LINK_AFILIADO_AMAZON",
-    icon: "💵",
-    id: "course-amazon",
-  },
-  {
-    title: "Shopee para Iniciantes",
-    description: "Do zero ao primeiro pedido. O marketplace que mais cresce no Brasil.",
-    tag: "Iniciante",
-    tagColor: "#7C3AED",
-    href: "#LINK_AFILIADO_SHOPEE",
-    icon: "📦",
-    id: "course-shopee",
-  },
-];
+import { COURSES, CATEGORIES } from "@/lib/courses";
 
 export default function FeaturedCourses() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
+
+  const getCategoryName = (categorySlug: string) => {
+    const cat = CATEGORIES.find((c) => c.slug === categorySlug);
+    return cat ? cat.title : categorySlug;
+  };
 
   return (
     <section
@@ -102,25 +69,25 @@ export default function FeaturedCourses() {
             Escolhidos pelos nossos{" "}
             <span className="gradient-text">especialistas</span>
           </h2>
-          <p style={{ color: "#1E3A5F", fontSize: "1rem", marginTop: "12px", maxWidth: "540px", margin: "12px auto 0", lineHeight: 1.6 }}>
-            Indicações estruturadas para ajudar você a dar o próximo passo de forma segura, do básico às vendas.
+          <p style={{ color: "#1E3A5F", fontSize: "1rem", marginTop: "12px", maxWidth: "600px", margin: "12px auto 0", lineHeight: 1.6 }}>
+            Indicações estruturadas para ajudar você a dar o próximo passo de forma segura, do básico às vendas consolidadas, categorizadas e avaliadas.
           </p>
         </motion.div>
 
-        {/* Course Cards */}
+        {/* Course Cards Grid */}
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
-            gap: "20px",
+            gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
+            gap: "24px",
           }}
         >
-          {featuredCourses.map((course, i) => (
+          {COURSES.map((course, i) => (
             <motion.div
-              key={course.title}
+              key={course.id}
               initial={{ opacity: 0, y: 30, filter: "blur(6px)" }}
               animate={inView ? { opacity: 1, y: 0, filter: "blur(0px)" } : {}}
-              transition={{ duration: 0.6, delay: 0.1 + i * 0.12, ease: [0.25, 0.46, 0.45, 0.94] }}
+              transition={{ duration: 0.6, delay: 0.05 + i * 0.08, ease: [0.25, 0.46, 0.45, 0.94] }}
               className="glow-card"
               style={{
                 padding: "32px 24px",
@@ -130,6 +97,8 @@ export default function FeaturedCourses() {
                 gap: "14px",
                 position: "relative",
                 overflow: "hidden",
+                border: course.tag === "Recomendado" ? "2px solid rgba(0, 196, 255, 0.4)" : "1px solid rgba(11, 37, 69, 0.08)",
+                boxShadow: course.tag === "Recomendado" ? "0 10px 30px rgba(0, 196, 255, 0.08)" : "none",
               }}
             >
               {/* Subtle corner glow */}
@@ -144,27 +113,47 @@ export default function FeaturedCourses() {
                 pointerEvents: "none",
               }} />
 
-              {/* Tag */}
-              <span
-                style={{
-                  display: "inline-block",
-                  background: `${course.tagColor}20`,
-                  border: `1px solid ${course.tagColor}44`,
-                  color: course.tagColor,
-                  padding: "4px 12px",
-                  borderRadius: "100px",
-                  fontSize: "11px",
-                  fontWeight: 700,
-                  letterSpacing: "0.06em",
-                  alignSelf: "flex-start",
-                }}
-              >
-                {course.tag}
-              </span>
+              {/* Badges Container */}
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", width: "100%", gap: "8px", flexWrap: "wrap" }}>
+                {/* Category Badge */}
+                <span
+                  style={{
+                    display: "inline-block",
+                    background: "rgba(11, 37, 69, 0.05)",
+                    border: "1px solid rgba(11, 37, 69, 0.12)",
+                    color: "#0B2545",
+                    padding: "3px 10px",
+                    borderRadius: "100px",
+                    fontSize: "10px",
+                    fontWeight: 700,
+                    textTransform: "uppercase",
+                    letterSpacing: "0.03em",
+                  }}
+                >
+                  {getCategoryName(course.category)}
+                </span>
+
+                {/* Tag Badge */}
+                <span
+                  style={{
+                    display: "inline-block",
+                    background: `${course.tagColor}20`,
+                    border: `1px solid ${course.tagColor}44`,
+                    color: course.tagColor,
+                    padding: "3px 10px",
+                    borderRadius: "100px",
+                    fontSize: "10px",
+                    fontWeight: 800,
+                    letterSpacing: "0.05em",
+                  }}
+                >
+                  {course.tag}
+                </span>
+              </div>
 
               {/* Icon */}
               <motion.div
-                style={{ fontSize: "2.5rem" }}
+                style={{ fontSize: "2.3rem", marginTop: "4px" }}
                 whileHover={{ scale: 1.15, rotate: -5 }}
                 transition={{ type: "spring", stiffness: 300 }}
               >
@@ -172,10 +161,10 @@ export default function FeaturedCourses() {
               </motion.div>
 
               {/* Content */}
-              <h3 style={{ color: "#0B2545", fontWeight: 800, fontSize: "1.15rem" }}>
+              <h3 style={{ color: "#0B2545", fontWeight: 800, fontSize: "1.15rem", letterSpacing: "-0.01em" }}>
                 {course.title}
               </h3>
-              <p style={{ color: "#1E3A5F", fontSize: "14px", lineHeight: 1.65, flex: 1 }}>
+              <p style={{ color: "#1E3A5F", fontSize: "13.5px", lineHeight: 1.65, flex: 1 }}>
                 {course.description}
               </p>
 
@@ -195,7 +184,7 @@ export default function FeaturedCourses() {
                   color: "#0B2545",
                   textAlign: "center",
                   display: "block",
-                  marginTop: "4px",
+                  marginTop: "8px",
                 }}
               >
                 Acessar Curso →

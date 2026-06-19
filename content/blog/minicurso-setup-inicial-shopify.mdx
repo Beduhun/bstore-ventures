@@ -1,0 +1,56 @@
+---
+title: "Minicurso: Configuração Inicial Técnica da sua Loja Shopify"
+description: "Aprenda o passo a passo básico para registrar seu domínio, configurar gateways e deixar sua loja Shopify pronta para o ar."
+date: "2026-06-19"
+category: "loja-virtual"
+readTime: "6 min"
+---
+
+## Introdução ao Setup Técnico do Shopify
+
+A **Shopify** é uma das maiores plataformas de e-commerce do mundo e a preferida por marcas que desejam flexibilidade e designs profissionais. No entanto, o painel de configurações iniciais pode parecer confuso para quem está começando.
+
+Neste minicurso, explicamos as etapas técnicas essenciais para configurar sua loja e deixá-la pronta para receber tráfego com segurança.
+
+---
+
+## Passo 1: Registro e Apontamento de Domínio
+
+Nunca anuncie sua loja usando o domínio padrão `.myshopify.com`. Isso destrói a credibilidade da marca.
+1. Compre um domínio próprio (ex: `sualoja.com.br`) no site **Registro.br** ou diretamente no painel da Shopify.
+2. Se comprou no Registro.br, vá em **Configurações > Domínios** no painel da Shopify, clique em **Conectar Domínio Existente** e insira seu endereço.
+3. Configure os apontamentos DNS no painel do Registro.br:
+   - Adicione uma entrada tipo **A** apontando para o IP da Shopify: `23.227.38.65`
+   - Adicione uma entrada tipo **CNAME** com o nome `www` apontando para `shops.myshopify.com`
+
+---
+
+## Passo 2: Configuração de Gateways de Pagamento (Checkout)
+
+O gateway de pagamento é o sistema que processa os cartões de crédito e envia o dinheiro para sua conta bancária.
+1. No painel da Shopify, vá em **Configurações > Provedores de Pagamento**.
+2. No Brasil, os provedores mais comuns integrados e que oferecem **Checkout Transparente** (onde o cliente preenche dados no seu site sem ser redirecionado) são o Mercado Pago, Appmax, dLocal e Cartpanda.
+3. Cadastre-se no provedor escolhido, gere as chaves de API (Public Key e Access Token) e cole nos respectivos campos na Shopify.
+
+---
+
+## Passo 3: Configuração de Fretes e Zonas de Entrega
+
+1. Vá em **Configurações > Frete e Entrega**.
+2. Defina as zonas de frete (ex: Brasil).
+3. Crie as tarifas de frete:
+   - **Frete Fixo**: Taxa padrão baseada no peso do pacote.
+   - **Frete Grátis**: Crie uma condição que zere o valor da entrega para compras acima de um valor determinado (ex: "Frete Grátis acima de R$ 199").
+
+---
+
+## Passo 4: Políticas de Página Obrigatórias (LGPD)
+
+Para estar em conformidade legal e passar na verificação do Google/Meta Ads, crie as páginas de políticas:
+1. Vá em **Configurações > Políticas**.
+2. Use os modelos padrão da Shopify ou escreva seus próprios textos de: *Política de Privacidade, Termos de Serviço, Política de Envio e Política de Reembolso*.
+3. Salve e adicione os links correspondentes no menu de rodapé de sua loja.
+
+## Quer aprender a criar uma loja virtual própria de alta conversão?
+
+A correta configuração técnica evita erros de transações e abandono de carrinho. Faça nosso diagnóstico de perfil gratuito e identifique os cursos recomendados que guiarão você no desenvolvimento e no design completo de sua loja virtual.
