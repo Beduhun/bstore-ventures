@@ -17,6 +17,18 @@ import {
   TrendingUp
 } from "lucide-react";
 import Link from "next/link";
+import {
+  ResponsiveContainer,
+  AreaChart,
+  Area,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  PieChart,
+  Pie,
+  Cell
+} from "recharts";
 
 interface Lead {
   id: string;
@@ -28,6 +40,35 @@ interface Lead {
   consent: boolean;
   emailsSent: string[];
 }
+
+const AdminChartTooltip = ({ active, payload, label, formatter }: any) => {
+  if (active && payload && payload.length) {
+    return (
+      <div
+        style={{
+          background: "rgba(11, 37, 69, 0.95)",
+          backdropFilter: "blur(8px)",
+          border: "1px solid rgba(0, 196, 255, 0.25)",
+          borderRadius: "10px",
+          padding: "10px 14px",
+          boxShadow: "0 10px 25px rgba(0, 0, 0, 0.3)",
+          color: "#F0F6FF",
+          fontSize: "12px",
+          fontFamily: "system-ui, sans-serif"
+        }}
+      >
+        {label && <p style={{ color: "#9EBDDF", fontSize: "11px", marginBottom: "4px", fontWeight: 650 }}>{label}</p>}
+        {payload.map((p: any, idx: number) => (
+          <p key={idx} style={{ color: p.color || p.payload?.fill || "#00C4FF", fontWeight: 700, display: "flex", alignItems: "center", gap: "6px", margin: "3px 0" }}>
+            <span style={{ display: "inline-block", width: "6px", height: "6px", borderRadius: "50%", background: p.color || p.payload?.fill || "#00C4FF" }}></span>
+            {p.name}: {formatter ? formatter(p.value) : p.value}
+          </p>
+        ))}
+      </div>
+    );
+  }
+  return null;
+};
 
 export default function AdminLeadsPage() {
   const [password, setPassword] = useState("");
@@ -159,6 +200,54 @@ export default function AdminLeadsPage() {
     };
   }, [leads]);
 
+  // Convert profile ID to human readable category label
+  const getProfileLabel = (profileId?: string) => {
+    if (!profileId) return "Não calculado";
+    const mapping: Record<string, string> = {
+      "course-ecommerce-completo": "E-commerce Completo",
+      "course-loja-e-trafego": "Loja Própria & Tráfego",
+      "course-marketplace-geral": "Marketplace Geral",
+      "course-tiktok-shop": "TikTok Shop",
+      "course-dropshipping-padrao": "Dropshipping Padrão",
+      "course-amazon-fba-eua": "Amazon FBA EUA",
+      "course-trafego-pago-avancado": "Tráfego Avançado",
+      "course-automacao-ecommerce": "Automação E-commerce"
+    };
+    return mapping[profileId] || profileId;
+  };
+
+  // Leads grouped by day (sorted chronologically)
+  const leadsPerDay = useMemo(() => {
+    const counts: Record<string, { count: number; dateObject: Date }> = {};
+    leads.forEach(l => {
+      const d = new Date(l.createdAt);
+      const dateStr = d.toLocaleDateString("pt-BR", { day: "2-digit", month: "2-digit" });
+      if (!counts[dateStr]) {
+        const midnight = new Date(d.getFullYear(), d.getMonth(), d.getDate());
+        counts[dateStr] = { count: 0, dateObject: midnight };
+      }
+      counts[dateStr].count += 1;
+    });
+
+    return Object.keys(counts)
+      .map(date => ({
+        date,
+        leads: counts[date].count,
+        timestamp: counts[date].dateObject.getTime()
+      }))
+      .sort((a, b) => a.timestamp - b.timestamp);
+  }, [leads]);
+
+  // Profile data for the Pie/Donut Chart
+  const profileChartData = useMemo(() => {
+    const COLORS = ["#00C4FF", "#10B981", "#8B5CF6", "#F59E0B", "#EF4444", "#3B82F6", "#EC4899", "#6B7280"];
+    return Object.keys(stats.profilesDistribution).map((profileId, index) => ({
+      name: getProfileLabel(profileId),
+      value: stats.profilesDistribution[profileId],
+      color: COLORS[index % COLORS.length]
+    }));
+  }, [stats.profilesDistribution]);
+
   // Export to CSV
   const handleExportCSV = () => {
     if (filteredLeads.length === 0) return;
@@ -186,22 +275,6 @@ export default function AdminLeadsPage() {
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
-  };
-
-  // Convert profile ID to human readable category label
-  const getProfileLabel = (profileId?: string) => {
-    if (!profileId) return "Não calculado";
-    const mapping: Record<string, string> = {
-      "course-ecommerce-completo": "E-commerce Completo",
-      "course-loja-e-trafego": "Loja Própria & Tráfego",
-      "course-marketplace-geral": "Marketplace Geral",
-      "course-tiktok-shop": "TikTok Shop",
-      "course-dropshipping-padrao": "Dropshipping Padrão",
-      "course-amazon-fba-eua": "Amazon FBA EUA",
-      "course-trafego-pago-avancado": "Tráfego Avançado",
-      "course-automacao-ecommerce": "Automação E-commerce"
-    };
-    return mapping[profileId] || profileId;
   };
 
   // Profile list for filter select
@@ -452,6 +525,115 @@ export default function AdminLeadsPage() {
           </div>
         </section>
 
+        {/* Charts Section */}
+        {leads.length > 0 && (
+          <section style={{ 
+            display: "grid", 
+            gridTemplateColumns: "repeat(auto-fit, minmax(400px, 1fr))", 
+            gap: "24px", 
+            marginBottom: "40px" 
+          }}>
+            {/* Chart 1: Leads por Dia */}
+            <div style={{
+              background: "rgba(11, 37, 69, 0.4)",
+              border: "1px solid rgba(0, 196, 255, 0.12)",
+              borderRadius: "20px",
+              padding: "28px 24px",
+              boxShadow: "0 10px 30px rgba(0,0,0,0.15)",
+            }}>
+              <h3 style={{ color: "#FFFFFF", fontWeight: 800, fontSize: "1.1rem", marginBottom: "4px" }}>
+                📈 Novos Leads por Dia
+              </h3>
+              <p style={{ color: "#9EBDDF", fontSize: "13px", marginBottom: "24px" }}>
+                Evolução diária de cadastros e conversão do quiz.
+              </p>
+              <div style={{ height: "260px" }}>
+                {leadsPerDay.length === 0 ? (
+                  <div style={{ height: "100%", display: "flex", alignItems: "center", justifyContent: "center", color: "#9EBDDF" }}>Sem dados diários disponíveis</div>
+                ) : (
+                  <ResponsiveContainer width="100%" height="100%">
+                    <AreaChart data={leadsPerDay} margin={{ top: 10, right: 10, left: -25, bottom: 0 }}>
+                      <defs>
+                        <linearGradient id="adminLeadsGrad" x1="0" y1="0" x2="0" y2="1">
+                          <stop offset="5%" stopColor="#00C4FF" stopOpacity={0.2} />
+                          <stop offset="95%" stopColor="#00C4FF" stopOpacity={0.0} />
+                        </linearGradient>
+                      </defs>
+                      <CartesianGrid strokeDasharray="3 3" stroke="rgba(0, 196, 255, 0.05)" />
+                      <XAxis dataKey="date" stroke="#9EBDDF" tick={{ fill: "#9EBDDF", fontSize: 11 }} />
+                      <YAxis stroke="#9EBDDF" tick={{ fill: "#9EBDDF", fontSize: 11 }} allowDecimals={false} />
+                      <Tooltip content={<AdminChartTooltip />} />
+                      <Area
+                        type="monotone"
+                        dataKey="leads"
+                        name="Leads"
+                        stroke="#00C4FF"
+                        strokeWidth={2.5}
+                        fillOpacity={1}
+                        fill="url(#adminLeadsGrad)"
+                        dot={{ r: 4, fill: "#00C4FF", strokeWidth: 0 }}
+                        activeDot={{ r: 6, fill: "#00C4FF", stroke: "#FFFFFF", strokeWidth: 2 }}
+                      />
+                    </AreaChart>
+                  </ResponsiveContainer>
+                )}
+              </div>
+            </div>
+
+            {/* Chart 2: Perfil Quiz */}
+            <div style={{
+              background: "rgba(11, 37, 69, 0.4)",
+              border: "1px solid rgba(0, 196, 255, 0.12)",
+              borderRadius: "20px",
+              padding: "28px 24px",
+              boxShadow: "0 10px 30px rgba(0,0,0,0.15)",
+            }}>
+              <h3 style={{ color: "#FFFFFF", fontWeight: 800, fontSize: "1.1rem", marginBottom: "4px" }}>
+                🍩 Distribuição por Perfil do Quiz
+              </h3>
+              <p style={{ color: "#9EBDDF", fontSize: "13px", marginBottom: "24px" }}>
+                Cursos recomendados conforme respostas do quiz.
+              </p>
+              
+              <div style={{ display: "flex", flexDirection: "row", flexWrap: "wrap", alignItems: "center", gap: "20px", height: "260px" }}>
+                <div style={{ flex: "1 1 180px", height: "100%", display: "flex", justifyContent: "center", alignItems: "center" }}>
+                  {profileChartData.length === 0 ? (
+                    <div style={{ color: "#9EBDDF" }}>Sem dados de perfil</div>
+                  ) : (
+                    <ResponsiveContainer width="100%" height="100%">
+                      <PieChart>
+                        <Tooltip content={<AdminChartTooltip formatter={(v: number) => `${v} lead(s)`} />} />
+                        <Pie
+                          data={profileChartData}
+                          cx="50%"
+                          cy="50%"
+                          innerRadius={50}
+                          outerRadius={75}
+                          paddingAngle={3}
+                          dataKey="value"
+                        >
+                          {profileChartData.map((entry, index) => (
+                            <Cell key={`cell-${index}`} fill={entry.color} />
+                          ))}
+                        </Pie>
+                      </PieChart>
+                    </ResponsiveContainer>
+                  )}
+                </div>
+                <div style={{ flex: "1.2 1 200px", maxHeight: "100%", overflowY: "auto", display: "flex", flexDirection: "column", gap: "8px", paddingRight: "6px" }} className="custom-scrollbar">
+                  {profileChartData.map((item, index) => (
+                    <div key={index} style={{ display: "flex", gap: "8px", alignItems: "center" }}>
+                      <span style={{ display: "inline-block", width: "10px", height: "10px", borderRadius: "50%", background: item.color, flexShrink: 0 }} />
+                      <span style={{ color: "#9EBDDF", fontSize: "11.5px", textOverflow: "ellipsis", overflow: "hidden", whiteSpace: "nowrap", flex: 1 }}>{item.name}</span>
+                      <span style={{ color: "#FFFFFF", fontSize: "12px", fontWeight: 700 }}>{item.value} ({Math.round((item.value / stats.total) * 100)}%)</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </section>
+        )}
+
         {/* Filter and Control Bar */}
         <section style={{ 
           background: "rgba(11, 37, 69, 0.2)", 
@@ -672,7 +854,19 @@ export default function AdminLeadsPage() {
         </section>
 
       </div>
-      <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
+      <style>{`
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .custom-scrollbar::-webkit-scrollbar {
+          width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+          background: rgba(11, 37, 69, 0.2);
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+          background: rgba(0, 196, 255, 0.3);
+          border-radius: 2px;
+        }
+      `}</style>
     </div>
   );
 }

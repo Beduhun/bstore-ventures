@@ -24,6 +24,11 @@ export default function FeaturedCourses() {
         overflow: "hidden",
       }}
     >
+      {/* Floating Isometric Shapes */}
+      <div className="isometric-shape isometric-shape-cyan" style={{ top: "10%", left: "5%", animationDelay: "1s" }} />
+      <div className="isometric-shape isometric-shape-purple" style={{ top: "80%", left: "90%", animationDelay: "3s" }} />
+      <div className="isometric-shape isometric-shape-cyan" style={{ top: "45%", left: "87%", animationDelay: "5s", width: "35px", height: "35px" }} />
+
       {/* Ambient glow */}
       <motion.div
         animate={{ opacity: [0.01, 0.03, 0.01] }}
@@ -98,7 +103,6 @@ export default function FeaturedCourses() {
                 position: "relative",
                 overflow: "hidden",
                 border: course.tag === "Recomendado" ? "2px solid rgba(0, 196, 255, 0.4)" : "1px solid rgba(11, 37, 69, 0.08)",
-                boxShadow: course.tag === "Recomendado" ? "0 10px 30px rgba(0, 196, 255, 0.08)" : "none",
               }}
             >
               {/* Subtle corner glow */}
@@ -114,7 +118,7 @@ export default function FeaturedCourses() {
               }} />
 
               {/* Badges Container */}
-              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", width: "100%", gap: "8px", flexWrap: "wrap" }}>
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", width: "100%", gap: "8px", flexWrap: "wrap", zIndex: 10 }}>
                 {/* Category Badge */}
                 <span
                   style={{
@@ -153,7 +157,8 @@ export default function FeaturedCourses() {
 
               {/* Icon */}
               <motion.div
-                style={{ fontSize: "2.3rem", marginTop: "4px" }}
+                className="glow-card-icon"
+                style={{ fontSize: "2.3rem", marginTop: "4px", zIndex: 10 }}
                 whileHover={{ scale: 1.15, rotate: -5 }}
                 transition={{ type: "spring", stiffness: 300 }}
               >
@@ -161,10 +166,10 @@ export default function FeaturedCourses() {
               </motion.div>
 
               {/* Content */}
-              <h3 style={{ color: "#0B2545", fontWeight: 800, fontSize: "1.15rem", letterSpacing: "-0.01em" }}>
+              <h3 style={{ color: "#0B2545", fontWeight: 800, fontSize: "1.15rem", letterSpacing: "-0.01em", zIndex: 10 }}>
                 {course.title}
               </h3>
-              <p style={{ color: "#1E3A5F", fontSize: "13.5px", lineHeight: 1.65, flex: 1 }}>
+              <p style={{ color: "#1E3A5F", fontSize: "13.5px", lineHeight: 1.65, flex: 1, zIndex: 10 }}>
                 {course.description}
               </p>
 
@@ -185,6 +190,7 @@ export default function FeaturedCourses() {
                   textAlign: "center",
                   display: "block",
                   marginTop: "8px",
+                  zIndex: 10,
                 }}
               >
                 Acessar Curso →

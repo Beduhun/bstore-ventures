@@ -45,9 +45,16 @@ export default async function CategoryPage({ params }: Props) {
             background: "linear-gradient(180deg, #FFFFFF 0%, #F7FAFC 100%)",
             padding: "80px 24px 60px",
             borderBottom: "1px solid rgba(11, 37, 69, 0.08)",
+            position: "relative",
+            overflow: "hidden",
           }}
         >
-          <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
+          {/* Floating Isometric Shapes */}
+          <div className="isometric-shape isometric-shape-cyan" style={{ top: "15%", left: "80%", animationDelay: "0s" }} />
+          <div className="isometric-shape isometric-shape-purple" style={{ top: "60%", left: "10%", animationDelay: "2s" }} />
+          <div className="isometric-shape isometric-shape-cyan" style={{ top: "70%", left: "85%", animationDelay: "4s", width: "30px", height: "30px" }} />
+
+          <div style={{ maxWidth: "1100px", margin: "0 auto", position: "relative", zIndex: 2 }}>
             {/* Back Button */}
             <Link
               href="/#categorias"
@@ -140,8 +147,8 @@ export default async function CategoryPage({ params }: Props) {
             {categoryCourses.map((course) => (
               <div
                 key={course.id}
+                className="glow-card"
                 style={{
-                  background: "#FFFFFF",
                   border: course.tag === "Recomendado" ? "2px solid #0070B8" : "1px solid rgba(11, 37, 69, 0.08)",
                   borderRadius: "20px",
                   padding: "36px 28px",
@@ -149,8 +156,6 @@ export default async function CategoryPage({ params }: Props) {
                   flexDirection: "column",
                   gap: "18px",
                   position: "relative",
-                  boxShadow: "0 10px 30px rgba(11, 37, 69, 0.03)",
-                  transition: "all 0.3s ease",
                 }}
               >
                 {/* Tag */}
@@ -173,7 +178,7 @@ export default async function CategoryPage({ params }: Props) {
                 </span>
 
                 {/* Icon */}
-                <div style={{ fontSize: "2.8rem" }}>{course.icon}</div>
+                <div className="glow-card-icon" style={{ fontSize: "2.8rem" }}>{course.icon}</div>
 
                 {/* Content */}
                 <div>
