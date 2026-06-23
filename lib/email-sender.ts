@@ -48,18 +48,6 @@ const EMAIL_TEMPLATES: Record<
     body: "Seu perfil aponta que a **Formação Marketplace Geral** é o seu caminho ideal. Vender no Mercado Livre, Shopee e Amazon permite que você anuncie para milhões de compradores ativos diários sem precisar investir alto em tráfego pago ou criar um site próprio do zero. Seu foco deve ser aprender a otimizar títulos (SEO de anúncios), preencher fichas técnicas e utilizar a logística integrada deles (como o Full do Mercado Livre) para ganhar destaque rápido.",
     blogSlugs: ["mercado-livre-recorde-entregas-rapidas", "dados-faturamento-shopee-brasil-2025"],
   },
-  "course-tiktok-shop": {
-    subject: "Seu Diagnóstico B'Store: Venda Viral no TikTok Shop 🎵",
-    intro: "Surfe a maior novidade do social commerce mundial!",
-    body: "O resultado do seu diagnóstico indica que o **TikTok Shop** é a sua melhor oportunidade. Sendo a mais recente novidade de mercado, o TikTok Shop permite vender produtos de forma nativa e rápida por meio de vídeos curtos. Se você gosta de produzir conteúdo ou quer aproveitar o tráfego orgânico gerado pelo algoritmo de vídeos virais, este é o canal certo para se posicionar antes da concorrência.",
-    blogSlugs: ["tiktok-shop-nova-onda-vendas", "crescimento-social-commerce-brasil-dados"],
-  },
-  "course-dropshipping-padrao": {
-    subject: "Seu Diagnóstico B'Store: Operação Dropshipping Padrão 🚚",
-    intro: "Abra sua loja online e venda sem precisar investir em estoque!",
-    body: "Seu principal gargalo é o capital para estoque, por isso o **Dropshipping Padrão** é o modelo de negócio ideal para o seu momento. Ele permite criar sua vitrine virtual e intermediar vendas conectando-se a fornecedores parceiros que realizam o despacho da mercadoria direto para o cliente final. O segredo é focar em validar fornecedores locais no Brasil para oferecer entregas rápidas e de qualidade.",
-    blogSlugs: ["dropshipping-em-2026-vale-a-pena", "taxacao-compras-internacionais-impacto-dropshipping"],
-  },
   "course-amazon-fba-eua": {
     subject: "Seu Diagnóstico B'Store: Amazon FBA EUA — Faturamento em Dólar 💵",
     intro: "Venda no maior mercado consumidor do mundo morando no Brasil!",
@@ -205,11 +193,11 @@ export const FOLLOWUP_TEMPLATES: Record<
   },
   "course-marketplace-geral": {
     1: {
-      subject: "Novidade: Como vender no TikTok Shop e surfar o novo algoritmo! 🎵",
-      intro: "O TikTok Shop acabou de chegar e está entregando muito tráfego orgânico gratuito!",
-      body: "Vender nos grandes marketplaces é ótimo, mas se posicionar no **TikTok Shop** agora é uma oportunidade de ouro. Aprenda como criar vídeos rápidos que viralizam e vendem de forma nativa no aplicativo.",
-      promoteCourseId: "course-tiktok-shop",
-      blogSlugs: ["tiktok-shop-nova-onda-vendas", "minicurso-tiktok-criativos-que-vendem"],
+      subject: "Próximo passo: saia do aluguel e construa sua loja própria 🌐",
+      intro: "Vender em marketplaces é ótimo, mas ter sua própria loja protege sua margem!",
+      body: "Você já anuncia nos grandes marketplaces. O próximo passo natural é construir um ativo seu: o curso **Criação de Loja Própria e Tráfego** te ensina a montar sua loja (Shopify/Nuvemshop) e atrair compradores com anúncios diretos, sem depender só das comissões de terceiros.",
+      promoteCourseId: "course-loja-e-trafego",
+      blogSlugs: ["plataformas-ecommerce-comparativo", "comportamento-consumidor-frete-gratis-dados"],
     },
     2: {
       subject: "Escalando Marketplaces: Integre tudo via ERP e multiplique seus canais 🤖",
@@ -219,45 +207,13 @@ export const FOLLOWUP_TEMPLATES: Record<
       blogSlugs: ["minicurso-configurar-erp-bling-ecommerce", "tendencias-inteligencia-artificial-atendimento-ecommerce"],
     }
   },
-  "course-tiktok-shop": {
-    1: {
-      subject: "Expandindo canais: Como cadastrar seus produtos nos grandes Marketplaces 🛒",
-      intro: "Não dependa apenas de um canal de vendas. Venda no Mercado Livre e Shopee!",
-      body: "O TikTok Shop é espetacular para tráfego rápido de criadores, mas consolidar suas ofertas na **Formação Marketplace Geral** garantirá um fluxo estável de faturamento diário passivo nos maiores varejistas.",
-      promoteCourseId: "course-marketplace-geral",
-      blogSlugs: ["dados-faturamento-shopee-brasil-2025", "minicurso-shopee-cadastro-produtos-otimizado"],
-    },
-    2: {
-      subject: "Construindo sua Marca: Dê o próximo passo com sua Loja Virtual própria 🌐",
-      intro: "Saia do aluguel de plataformas de terceiros e crie sua própria marca forte!",
-      body: "Para estruturar um ativo real de negócios e ter uma base de clientes própria, você precisa do curso **E-commerce Completo**. Ele te ensinará a criar um site unificado integrado e sustentável a longo prazo.",
-      promoteCourseId: "course-ecommerce-completo",
-      blogSlugs: ["crescimento-social-commerce-brasil-dados", "como-sair-da-loja-fisica-para-o-digital"],
-    }
-  },
-  "course-dropshipping-padrao": {
-    1: {
-      subject: "Oportunidade Global: Como faturar em Dólar vendendo na Amazon EUA 💵",
-      intro: "Venda sem estoque no maior e-commerce do planeta morando no Brasil!",
-      body: "Você já compreende o dropshipping nacional. O próximo nível lógico é a escala em dólar. Com o curso **Amazon FBA nos Estados Unidos**, você vende direto na Amazon americana enviando estoque sob demanda via parceiros, faturando na moeda mais forte do mundo.",
-      promoteCourseId: "course-amazon-fba-eua",
-      blogSlugs: ["amazon-fba-eua-lucro-2026", "minicurso-amazon-fba-calculo-margem"],
-    },
-    2: {
-      subject: "Escala de Dropshipping: Otimize anúncios e domine o Pixel de Conversão 🎯",
-      intro: "O segredo do dropshipping lucrativo está na otimização de campanhas e copy!",
-      body: "Com o dropshipping estruturado, você precisa dominar mídia paga. A indicação certa para alavancar seu tráfego é o curso **Tráfego Pago Avançado**, que aborda escala de Meta e Google Ads.",
-      promoteCourseId: "course-trafego-pago-avancado",
-      blogSlugs: ["trafego-pago-e-commerce-2026", "minicurso-facebook-ads-pixel-conversao"],
-    }
-  },
   "course-amazon-fba-eua": {
     1: {
-      subject: "Trabalhando no Brasil: Como iniciar no Dropshipping Nacional sem estoque 🚚",
-      intro: "Quer diversificar seus ganhos e vender localmente no Brasil sem estoque?",
-      body: "Faturar in dólar é fantástico. Mas o mercado de dropshipping nacional no Brasil está aquecido e com entregas de 2 a 5 dias. O curso **Dropshipping Padrão** ensinará você a encontrar fornecedores locais confiáveis.",
-      promoteCourseId: "course-dropshipping-padrao",
-      blogSlugs: ["dropshipping-em-2026-vale-a-pena", "minicurso-dropshipping-nacional-fornecedores"],
+      subject: "Diversifique no Brasil: venda nos maiores marketplaces nacionais 🛒",
+      intro: "Quer complementar seu faturamento em dólar vendendo também aqui no Brasil?",
+      body: "Faturar em dólar é fantástico, mas diversificar reduz riscos. A **Formação Marketplace Geral** te ensina a vender no Mercado Livre, Shopee e Amazon Brasil, aproveitando milhões de compradores ativos com logística integrada e entregas rápidas.",
+      promoteCourseId: "course-marketplace-geral",
+      blogSlugs: ["mercado-livre-recorde-entregas-rapidas", "dados-faturamento-shopee-brasil-2025"],
     },
     2: {
       subject: "Mídia Paga Avançada: Como escalar suas vendas globais de forma assertiva 🎯",

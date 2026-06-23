@@ -207,11 +207,13 @@ export default function AdminLeadsPage() {
       "course-ecommerce-completo": "E-commerce Completo",
       "course-loja-e-trafego": "Loja Própria & Tráfego",
       "course-marketplace-geral": "Marketplace Geral",
-      "course-tiktok-shop": "TikTok Shop",
-      "course-dropshipping-padrao": "Dropshipping Padrão",
       "course-amazon-fba-eua": "Amazon FBA EUA",
       "course-trafego-pago-avancado": "Tráfego Avançado",
-      "course-automacao-ecommerce": "Automação E-commerce"
+      "course-automacao-ecommerce": "Automação E-commerce",
+      "course-mercado-livre": "Mercado Livre Profissional",
+      "course-importacao-fornecedores": "Importação & Fornecedores",
+      "course-gestao-precificacao": "Gestão & Precificação",
+      "course-cro-conversao": "Otimização de Conversão (CRO)"
     };
     return mapping[profileId] || profileId;
   };
@@ -282,11 +284,13 @@ export default function AdminLeadsPage() {
     { id: "course-ecommerce-completo", name: "E-commerce Completo" },
     { id: "course-loja-e-trafego", name: "Loja Própria & Tráfego" },
     { id: "course-marketplace-geral", name: "Marketplace Geral" },
-    { id: "course-tiktok-shop", name: "TikTok Shop" },
-    { id: "course-dropshipping-padrao", name: "Dropshipping Padrão" },
     { id: "course-amazon-fba-eua", name: "Amazon FBA EUA" },
     { id: "course-trafego-pago-avancado", name: "Tráfego Avançado" },
-    { id: "course-automacao-ecommerce", name: "Automação E-commerce" }
+    { id: "course-automacao-ecommerce", name: "Automação E-commerce" },
+    { id: "course-mercado-livre", name: "Mercado Livre Profissional" },
+    { id: "course-importacao-fornecedores", name: "Importação & Fornecedores" },
+    { id: "course-gestao-precificacao", name: "Gestão & Precificação" },
+    { id: "course-cro-conversao", name: "Otimização de Conversão (CRO)" }
   ];
 
   // Render Login Lock Screen

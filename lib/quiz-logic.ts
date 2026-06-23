@@ -13,7 +13,6 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
         weight: {
           "course-ecommerce-completo": 3,
           "course-marketplace-geral": 2,
-          "course-dropshipping-padrao": 3,
         },
       },
       {
@@ -23,7 +22,6 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
           "course-ecommerce-completo": 3,
           "course-loja-e-trafego": 2,
           "course-marketplace-geral": 3,
-          "course-tiktok-shop": 2,
         },
       },
       {
@@ -55,8 +53,6 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
         label: "⏱️ Menos de 2 horas por dia",
         weight: {
           "course-marketplace-geral": 3,
-          "course-dropshipping-padrao": 2,
-          "course-tiktok-shop": 2,
         },
       },
       {
@@ -65,7 +61,6 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
         weight: {
           "course-ecommerce-completo": 3,
           "course-loja-e-trafego": 2,
-          "course-dropshipping-padrao": 3,
           "course-amazon-fba-eua": 2,
         },
       },
@@ -89,8 +84,6 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
         id: "invest_baixo",
         label: "💸 Menos de R$ 500",
         weight: {
-          "course-dropshipping-padrao": 4,
-          "course-tiktok-shop": 3,
           "course-marketplace-geral": 1,
         },
       },
@@ -100,7 +93,6 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
         weight: {
           "course-ecommerce-completo": 4,
           "course-marketplace-geral": 4,
-          "course-dropshipping-padrao": 2,
           "course-loja-e-trafego": 1,
         },
       },
@@ -133,14 +125,12 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
         label: "🛒 Aproveitar tráfego de grandes plataformas sem ter que criar site",
         weight: {
           "course-marketplace-geral": 4,
-          "course-tiktok-shop": 3,
         },
       },
       {
         id: "obj_sem_estoque",
         label: "📦 Quero construir minha marca e vender online mas não possuo estoque",
         weight: {
-          "course-dropshipping-padrao": 4,
           "course-amazon-fba-eua": 4,
         },
       },
@@ -163,7 +153,6 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
         label: "💵 Sim, gostaria de faturar em dólar morando no Brasil",
         weight: {
           "course-amazon-fba-eua": 5,
-          "course-dropshipping-padrao": 1,
         },
       },
       {
@@ -173,8 +162,6 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
           "course-ecommerce-completo": 3,
           "course-loja-e-trafego": 2,
           "course-marketplace-geral": 3,
-          "course-dropshipping-padrao": 2,
-          "course-tiktok-shop": 2,
         },
       },
     ],
@@ -187,8 +174,8 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
         id: "estr_videos",
         label: "🎵 Vender por vídeos rápidos, tendências virais e redes sociais",
         weight: {
-          "course-tiktok-shop": 4,
-          "course-dropshipping-padrao": 2,
+          "course-loja-e-trafego": 3,
+          "course-marketplace-geral": 2,
         },
       },
       {
@@ -217,7 +204,6 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
         id: "receio_logistica",
         label: "🚚 Custos logísticos e gastar muito comprando estoque antecipadamente",
         weight: {
-          "course-dropshipping-padrao": 4,
           "course-amazon-fba-eua": 4,
         },
       },
@@ -257,14 +243,6 @@ const DIAGNOSIS_MAP: Record<
   "course-marketplace-geral": {
     headline: "🛒 Seu Plano: Venda Onde o Tráfego de Compradores Já Existe",
     diagnosis: "Você prefere ter vendas ativas rápidas sem a complexidade técnica de gerenciar um site. A Formação Marketplace Geral é perfeita por consolidar as melhores estratégias no Mercado Livre, Shopee e Amazon em um único aprendizado focado em conversão.",
-  },
-  "course-tiktok-shop": {
-    headline: "🎵 Seu Plano: Venda Viral Integrada ao Social Commerce",
-    diagnosis: "Você possui perfil criativo ou quer aproveitar tendências rápidas. O TikTok Shop é a maior novidade do mercado e focar nele agora permitirá que você aproveite o tráfego orgânico gerado pelos vídeos curtos para faturar rapidamente com baixo investimento.",
-  },
-  "course-dropshipping-padrao": {
-    headline: "🚚 Seu Plano: Venda Sem Estoque e com Baixo Risco Inicial",
-    diagnosis: "Seu principal obstáculo é o capital para estocar produtos. O curso Dropshipping Padrão guiará você na criação de uma operação nacional sólida conectada a fornecedores locais confiáveis que realizam as entregas para você.",
   },
   "course-amazon-fba-eua": {
     headline: "💵 Seu Plano: Operação Internacional e Faturamento em Dólar",
